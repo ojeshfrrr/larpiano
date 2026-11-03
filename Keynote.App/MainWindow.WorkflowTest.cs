@@ -19,9 +19,9 @@ public partial class MainWindow {
   var root=Path.GetDirectoryName(AppDataRoot)!; var output=Path.Combine(root,"workflow-result.json"); var result=new Dictionary<string,object>();
   try {
    void Capture(string name) { UpdateLayout(); var bitmap=new System.Windows.Media.Imaging.RenderTargetBitmap((int)ActualWidth,(int)ActualHeight,96,96,System.Windows.Media.PixelFormats.Pbgra32); bitmap.Render(this); var encoder=new System.Windows.Media.Imaging.PngBitmapEncoder(); encoder.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(bitmap)); using var stream=File.Create(Path.Combine(root,name+".png")); encoder.Save(stream); }
-   Width=1280; Height=720; for(int tab=0;tab<6;tab++) { MainTabs.SelectedIndex=tab; await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.ApplicationIdle); Capture("screen-"+tab); }
+   Width=1280; Height=720; for(int tab=0;tab<7;tab++) { MainTabs.SelectedIndex=tab; await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.ApplicationIdle); Capture("screen-"+tab); }
    foreach(var size in new[]{(1280,720),(1366,768),(1920,1080)}) {Width=size.Item1;Height=size.Item2;MainTabs.SelectedIndex=0;await System.Windows.Threading.Dispatcher.Yield(System.Windows.Threading.DispatcherPriority.ApplicationIdle); if(Windows.ActualWidth<100 || PlayerSongSelector.ActualWidth<100)throw new InvalidOperationException("Player selectors clipped at "+size); Capture("size-"+size.Item1);}
-   result["navigationAndResize"]=true;
+   if(InstalledUpdate.Text!="Installed version: "+InstalledVersion || !UpdaterMessage.Text.Contains("Check GitHub",StringComparison.Ordinal))throw new InvalidOperationException("Updater initial state missing."); result["updaterNavigation"]=true; result["navigationAndResize"]=true;
    MainTabs.SelectedIndex=1; if(MainTabs.SelectedIndex!=1)throw new InvalidOperationException("Discover navigation failed.");
    CatalogSelector.SelectedIndex=1; SearchQuery.Text="Workflow test song"; searchDebouncer?.Cancel(); await SearchOnlineAsync(0,false,CancellationToken.None);
    if(SearchResults.Items.Count!=1)throw new InvalidOperationException("Search result was not displayed: "+DiscoverStatus.Text);

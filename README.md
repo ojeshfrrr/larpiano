@@ -69,3 +69,9 @@ Target experience: https://www.roblox.com/games/78699621133325/Meet-People-Acros
 Online imports preserve the source, license and SHA-256 in Player. Cancelling an online operation prevents its prepared song from being committed; a library save that already completed is retained. MIDI parsing uses a synchronous third-party parser on a worker thread: cancellation is checked before and after parsing, not inside the parser. Online downloads are limited to 10 MB; local MIDI files have no equivalent size limit. Inspection may parse a file multiple times and preflight sorts note events, so very large files can still consume substantial memory and time. The piano roll caches its note list and refreshes the cursor less frequently, but drawing remains proportional to note count. Closing cancels online work and attempts key cleanup; a remote Opennan conversion may continue.
 
 The published executable has a hidden `--workflow-test` mode for isolated background validation with mocked HTTP. It requires an existing absolute test directory and an explicit MIDI fixture path and disables hotkeys. It does not test live provider HTTP or Roblox. Use `--workflow-test <test-directory> <fixture.mid>` only with disposable test data.
+
+## Updates
+
+The Updater tab checks the latest published stable GitHub release using the `gh` CLI and its existing GitHub login. Install and sign in to GitHub CLI before checking. A missing release and an inaccessible repository can both return HTTP 404, so the app reports these possibilities together.
+
+The app compares three-part version tags such as `v1.0.1` with the installed assembly version. Publish a release with a higher matching version and attach a Windows build before expecting an update to be available. The tab opens the GitHub releases page; installation is manual and no executable is automatically downloaded or replaced.
