@@ -1,0 +1,12 @@
+# .NET and IDE output
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+TestResults/
+
+# Published builds and local verification artifacts
+/publish*/
+/verification/
+/visual-pianos-c2.json
