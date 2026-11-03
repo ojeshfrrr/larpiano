@@ -3,7 +3,8 @@ using System.Windows;
 using Keynote.Online;
 namespace Keynote.App;
 public partial class MainWindow {
- readonly UpdateChecker updateChecker=new(new GitHubCliReleaseSource());
+ static readonly System.Net.Http.HttpClient updateHttp=GitHubReleaseSource.CreateClient();
+ readonly UpdateChecker updateChecker=new(new GitHubReleaseSource(updateHttp));
  CancellationTokenSource? updateCancellation;
  static string InstalledVersion => typeof(MainWindow).Assembly.GetName().Version is Version v ? $"{v.Major}.{v.Minor}.{Math.Max(0,v.Build)}" : "unknown";
  async void CheckForUpdates(object sender,RoutedEventArgs e) {

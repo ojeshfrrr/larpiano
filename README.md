@@ -4,6 +4,12 @@ Windows MIDI-to-keyboard piano player. Requires Windows x64 and a **verified map
 
 For the short workflow, select the Roblox window and a library song on Player, focus the selected Roblox piano window, and press Ctrl+Alt+F8. Selecting an entry loads its complete MIDI without starting playback. The app remembers the mapping and octave and selects Roblox automatically when exactly one Roblox window is available. Songs with unmapped notes or conflicting key holds still require adjustment before playback. Ctrl+Alt+F9 stops playback; select a song again to start a new session after an emergency stop.
 
+## Download
+
+Download the Windows x64 ZIP from [GitHub Releases](https://github.com/ojeshfrrr/larpiano/releases/latest), extract the entire ZIP, and run `Keynote.App.exe`. Songs and mappings are not bundled. The application requires a verified mapping for the specific piano.
+
+Website: https://ojeshfrrr.github.io/larpiano/
+
 ## Build and run
 
 Install the .NET 10 SDK, then run:
@@ -72,6 +78,4 @@ The published executable has a hidden `--workflow-test` mode for isolated backgr
 
 ## Updates
 
-The Updater tab checks the latest published stable GitHub release using the `gh` CLI and its existing GitHub login. Install and sign in to GitHub CLI before checking. A missing release and an inaccessible repository can both return HTTP 404, so the app reports these possibilities together.
-
-The app compares three-part version tags such as `v1.0.1` with the installed assembly version. Publish a release with a higher matching version and attach a Windows build before expecting an update to be available. The tab opens the GitHub releases page; installation is manual and no executable is automatically downloaded or replaced.
+The Updater tab checks the latest published stable GitHub release over HTTPS without requiring GitHub CLI or an account. It compares three-part version tags such as `v1.0.1` with the installed assembly version. The tab opens the GitHub releases page; installation is manual and no executable is automatically downloaded or replaced.

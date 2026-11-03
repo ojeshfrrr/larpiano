@@ -10,7 +10,7 @@ public class UpdateCheckerTests {
  [InlineData("v1.0", UpdateState.InvalidRelease)]
  [InlineData("not-a-version", UpdateState.InvalidRelease)]
  public async Task ComparesStableReleaseTags(string tag,UpdateState state) {var result=await new UpdateChecker(new Source(new(true,tag))).CheckAsync(new Version(1,0,0,0),CancellationToken.None);Assert.Equal(state,result.State);}
- [Fact] public async Task ReportsMissingReleaseAndAccessAmbiguity() {var r=await new UpdateChecker(new Source(new(false,null))).CheckAsync(new Version(1,0,0),CancellationToken.None);Assert.Equal(UpdateState.NoRelease,r.State);Assert.Contains("cannot access",r.Message);}
+ [Fact] public async Task ReportsMissingRelease() {var r=await new UpdateChecker(new Source(new(false,null))).CheckAsync(new Version(1,0,0),CancellationToken.None);Assert.Equal(UpdateState.NoRelease,r.State);Assert.Contains("No published release",r.Message);}
  [Fact] public async Task ReportsSourceFailure() {var r=await new UpdateChecker(new Source(new(false,null,"unavailable"))).CheckAsync(new Version(1,0,0),CancellationToken.None);Assert.Equal(UpdateState.Unavailable,r.State);}
  [Fact] public async Task HonorsCancellation() {using var c=new CancellationTokenSource();c.Cancel();await Assert.ThrowsAnyAsync<OperationCanceledException>(()=>new UpdateChecker(new Source(new(true,"v1.0.1"))).CheckAsync(new Version(1,0,0),c.Token));}
 }
