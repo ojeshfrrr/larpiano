@@ -24,6 +24,7 @@
   const buttons = new Map();
   const active = new Map();
   const pointers = new Map();
+  const pending = new Map();
   let context = null;
   let audioReady = false;
   let message = root.querySelector('[data-piano-status]');
@@ -120,8 +121,36 @@
     });
   }
   function userPress(midi, source) {
+    if (pending.has(source)) return;
+    const activation = { midi, ready: false, released: false };
+    pending.set(source, activation);
+    setTimeout(() => { if (!activation.ready) finishUserPress(source, activation); }, 2000);
     press(midi, source);
-    void enableAudio();
+    void enableAudio().then(ok => {
+      if (pending.get(source) !== activation) return;
+      activation.ready = true;
+      if (activation.released) {
+        // A quick tap can end before the browser finishes unlocking audio.
+        if (ok) setTimeout(() => finishUserPress(source, activation), 150);
+        else finishUserPress(source, activation);
+      }
+    });
+  }
+  function finishUserPress(source, activation) {
+    if (pending.get(source) !== activation) return;
+    pending.delete(source);
+    release(activation.midi, source);
+  }
+  function userRelease(source) {
+    const activation = pending.get(source);
+    if (!activation) return;
+    if (activation.ready) finishUserPress(source, activation);
+    else activation.released = true;
+  }
+  function clearUserPresses() {
+    pending.clear();
+    pointers.clear();
+    allOff();
   }
 
   notes.forEach(note => {
@@ -151,7 +180,7 @@
       const midi = pointers.get(event.pointerId);
       if (midi === undefined) return;
       pointers.delete(event.pointerId);
-      release(midi, `pointer:${event.pointerId}`);
+      userRelease(`pointer:${event.pointerId}`);
     };
     button.addEventListener('pointerup', endPointer);
     button.addEventListener('pointercancel', endPointer);
@@ -165,9 +194,23 @@
     button.addEventListener('keyup', event => {
       if (event.key !== ' ' && event.key !== 'Enter') return;
       event.preventDefault();
-      release(note.midi, `button:${note.midi}`);
+      userRelease(`button:${note.midi}`);
     });
-    button.addEventListener('blur', () => release(note.midi, `button:${note.midi}`));
+    button.addEventListener('blur', () => userRelease(`button:${note.midi}`));
+    // Accessibility APIs can activate buttons with a click and no pointer events.
+    let keyboardActivation = false;
+    button.addEventListener('keydown', event => {
+      if (event.key === ' ' || event.key === 'Enter') keyboardActivation = true;
+    });
+    button.addEventListener('keyup', event => {
+      if (event.key === ' ' || event.key === 'Enter') setTimeout(() => { keyboardActivation = false; }, 0);
+    });
+    button.addEventListener('click', event => {
+      if (event.detail !== 0 || keyboardActivation) return;
+      const source = `accessibility:${note.midi}`;
+      userPress(note.midi, source);
+      setTimeout(() => userRelease(source), 180);
+    });
   });
   root.prepend(board);
   if (!message.isConnected) root.appendChild(message);
@@ -184,10 +227,10 @@
   });
   document.addEventListener('keyup', event => {
     const note = byCode.get(event.code);
-    if (note) release(note.midi, `keyboard:${event.code}`);
+    if (note) userRelease(`keyboard:${event.code}`);
   });
-  window.addEventListener('blur', () => { pointers.clear(); allOff(); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { pointers.clear(); allOff(); } });
+  window.addEventListener('blur', clearUserPresses);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) clearUserPresses(); });
   window.larpianoPiano = { enableAudio, press, release, allOff };
   window.dispatchEvent(new CustomEvent('larpiano:piano-ready'));
 })();
