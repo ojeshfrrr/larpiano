@@ -1,7 +1,7 @@
 .larp-demo{--demo-ink:#f1ebdf;--demo-dim:#c9c0d1;--demo-accent:#c4b1f4;color:var(--demo-ink);background:#191323;border:1px solid #5e5269;padding:clamp(16px,2.8vw,30px);overflow:hidden}
 .larp-demo *{box-sizing:border-box}
 .larp-demo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.larp-demo-head h2{font:550 clamp(28px,3vw,42px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.045em;margin:0}
+.larp-demo-head h2{font:550 clamp(28px,3vw,42px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0}
 .larp-demo-head p{max-width:470px;color:var(--demo-dim);margin:8px 0 0;line-height:1.55;font-size:14px}
 .larp-demo-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .larp-demo-controls button{min-height:44px;padding:10px 16px;border:1px solid #a192b3;border-radius:4px;font:700 13px Manrope,system-ui,sans-serif;cursor:pointer;color:#f1ebdf;background:#332641}
