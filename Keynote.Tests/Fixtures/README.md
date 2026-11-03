@@ -1,0 +1,1 @@
+These MIDI files and their source definitions are from https://github.com/jazz-soft/test-midi-files (MIT license; see LICENSE.md). The files are independent, authored Standard MIDI File fixtures. Expected notes and tempo values are documented in the corresponding .js.txt source definitions. They are test compositions, not a broad corpus of real-world songs.

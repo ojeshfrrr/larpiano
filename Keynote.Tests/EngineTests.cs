@@ -1,0 +1,16 @@
+using Keynote.Core; using Keynote.Midi; using Keynote.Playback; using Keynote.Infrastructure;
+namespace Keynote.Tests;
+public class EngineTests {
+ static MidiSong Song(params MidiNote[] notes) => new("test",new[]{new MidiTrack(0,notes)});
+ static MidiNote Note(int pitch,int start,int duration) => new(pitch,100,TimeSpan.FromMilliseconds(start),TimeSpan.FromMilliseconds(duration),0);
+ static KeyboardMapping Map() => new(){Keys=new(){{60,"A"},{62,"S"}}};
+ [Fact] public void MissingAndDuplicatesAreDetected() { var map=Map(); var song=Song(Note(60,0,10),Note(64,0,10)); Assert.Equal(new[]{64},map.Missing(song)); map.Keys[62]="a"; Assert.Single(map.Duplicates()); Assert.Throws<InvalidOperationException>(()=>PlaybackEngine.BuildEvents(song,map)); }
+ [Fact] public void EventsPreserveChordsAndReleaseBeforeRepeat() { var e=PlaybackEngine.BuildEvents(Song(Note(60,0,100),Note(62,0,100),Note(60,100,100)),Map()); Assert.Equal(2,e.Count(x=>x.Time==TimeSpan.Zero && x.IsDown)); var same=e.Where(x=>x.Time==TimeSpan.FromMilliseconds(100)).ToArray(); Assert.False(same[0].IsDown); Assert.False(same[1].IsDown); Assert.True(same[2].IsDown); }
+ [Fact] public async Task ProfileRoundTrip() { var file=Path.GetTempFileName(); try { var store=new ProfileStore(); await store.SaveAsync(file,Map()); var map=await store.LoadAsync(file); Assert.Equal("A",map.Lookup(60)); } finally { File.Delete(file); } }
+ [Fact] public void ImportTempoChangesAndZeroVelocity() { byte[] bytes={ 77,84,104,100,0,0,0,6,0,0,0,1,1,224, 77,84,114,107,0,0,0,27, 0,0x90,60,100, 0x83,0x60,0xff,0x51,3,0x0f,0x42,0x40, 0x83,0x60,0x90,60,0, 0,0xff,0x2f,0 }; // 23 bytes track data
+  bytes[21]=21; var path=Path.Combine(Path.GetTempPath(),Guid.NewGuid()+".mid"); File.WriteAllBytes(path,bytes); try { var song=new MidiImporter().Import(path); var note=Assert.Single(song.Notes); Assert.Equal(1.5,note.Duration.TotalSeconds,3); } finally { File.Delete(path); } }
+ [Fact] public void MalformedFileFails() { var path=Path.Combine(Path.GetTempPath(),Guid.NewGuid()+".mid"); File.WriteAllText(path,"bad"); try { Assert.Throws<InvalidDataException>(()=>new MidiImporter().Import(path)); } finally { File.Delete(path); } }
+ [Fact] public async Task StopReleasesAndPreventsConcurrentPlayback() { var fake=new Fake(); using var engine=new PlaybackEngine(fake); engine.Start(Song(Note(60,0,5000)),Map()); Assert.Throws<InvalidOperationException>(()=>engine.Start(Song(Note(60,0,10)),Map())); await Task.Delay(100); await engine.StopAsync(); Assert.Empty(fake.Held); Assert.Equal(PlaybackState.Stopped,engine.State); }
+ [Fact] public async Task FocusLossReleasesHeldKeys() { var fake=new Fake(); using var engine=new PlaybackEngine(fake); engine.Start(Song(Note(60,0,5000)),Map()); await Task.Delay(100); fake.Focus=false; await Task.Delay(100); Assert.Empty(fake.Held); Assert.Equal(PlaybackState.Paused,engine.State); }
+ sealed class Fake : IKeyboardInput { public volatile bool Focus=true; public bool IsTargetForeground=>Focus; public HashSet<string> Held=new(); public void Press(string key) { lock(Held) Held.Add(key); } public void Release(string key) { lock(Held) Held.Remove(key); } public void ReleaseAll() { lock(Held) Held.Clear(); } public void Dispose()=>ReleaseAll(); }
+}
