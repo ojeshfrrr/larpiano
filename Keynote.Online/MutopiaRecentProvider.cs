@@ -1,0 +1,13 @@
+using System.Xml;
+using System.Xml.Linq;
+namespace Keynote.Online;
+/// <summary>Searches Mutopia's published recent-additions feed, not its complete catalogue.</summary>
+public sealed class MutopiaRecentProvider(HttpClient http) : IMidiCatalogProvider {
+ public async Task<CatalogPage> SearchAsync(string query,int page,CancellationToken token) {
+  if(page!=0)throw new NotSupportedException("The Mutopia recent-additions feed has no pagination."); if(string.IsNullOrWhiteSpace(query))return new(Array.Empty<CatalogResult>(),false); if(query.Length>200)throw new ArgumentException("Search is limited to 200 characters.");
+  using var response=await http.GetAsync("https://www.mutopiaproject.org/latestadditions.rss",HttpCompletionOption.ResponseHeadersRead,token); response.EnsureSuccessStatusCode(); if(response.Content.Headers.ContentLength>2*1024*1024)throw new InvalidDataException("Mutopia feed is too large."); await using var source=await response.Content.ReadAsStreamAsync(token); using var buffer=new MemoryStream(); var block=new byte[8192]; int n; while((n=await source.ReadAsync(block,token))>0) { if(buffer.Length+n>2*1024*1024)throw new InvalidDataException("Mutopia feed is too large."); buffer.Write(block,0,n); } buffer.Position=0; var settings=new XmlReaderSettings { DtdProcessing=DtdProcessing.Prohibit, XmlResolver=null, MaxCharactersInDocument=2*1024*1024 }; using var reader=XmlReader.Create(buffer,settings); var doc=XDocument.Load(reader); var results=new List<CatalogResult>();
+  foreach(var item in doc.Descendants("item")) { token.ThrowIfCancellationRequested(); var title=(string?)item.Element("title")??"Untitled"; var desc=(string?)item.Element("description")??""; var raw=(string?)item.Element("link"); if(!Uri.TryCreate(raw,UriKind.Absolute,out var uri) || !(uri.Host.Equals("www.mutopiaproject.org",StringComparison.OrdinalIgnoreCase)||uri.Host.Equals("mutopiaproject.org",StringComparison.OrdinalIgnoreCase)) || uri.AbsolutePath!="/cgibin/piece-info.cgi")continue; var match=System.Text.RegularExpressions.Regex.Match(uri.Query,@"^\?id=(\d{1,10})$"); if(!match.Success)continue; if(!(title+" "+desc).Contains(query.Trim(),StringComparison.OrdinalIgnoreCase))continue; var id=match.Groups[1].Value; results.Add(new("Mutopia recent feed",id,title,"See source",desc,"Public Domain or Creative Commons; check the piece page for the specific license.",$"https://www.mutopiaproject.org/cgibin/piece-info.cgi?id={id}")); }
+  return new(results.DistinctBy(r=>r.Id).ToArray(),false);
+ }
+ public Uri DownloadUri(CatalogResult result)=>throw new NotSupportedException("Mutopia's recent feed links to piece pages, not direct MIDI downloads.");
+}
