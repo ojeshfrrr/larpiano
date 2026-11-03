@@ -1,0 +1,60 @@
+name: Windows release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Validate release version
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          if ($tag -notmatch '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$') {
+            throw 'Use a stable version tag in the form vMAJOR.MINOR.PATCH.'
+          }
+          "RELEASE_VERSION=$($tag.Substring(1))" >> $env:GITHUB_ENV
+      - name: Restore and test
+        shell: pwsh
+        run: |
+          dotnet restore Keynote.sln
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet test Keynote.sln -c Release --no-restore -p:Version=$env:RELEASE_VERSION
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Publish Windows x64
+        shell: pwsh
+        run: |
+          dotnet publish Keynote.App/Keynote.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:Version=$env:RELEASE_VERSION -o release-output
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (-not (Test-Path -LiteralPath 'release-output/Keynote.App.exe')) { throw 'Published executable was not produced.' }
+          @'
+          LARPIANO FOR WINDOWS
+
+          Extract the entire ZIP to a folder, then run Keynote.App.exe.
+          Choose your Roblox window, select or import a MIDI, and verify the
+          mapping for your piano before using Ctrl+Alt+F8 to play or pause.
+          Ctrl+Alt+F9 stops playback. Your library and settings are stored in
+          %LOCALAPPDATA%\KEYNOTE and are not included in this download.
+          '@ | Set-Content -Encoding utf8 release-output/READ-ME.txt
+          Compress-Archive -Path 'release-output/*' -DestinationPath 'larpiano-windows-x64.zip'
+          $hash = (Get-FileHash -Algorithm SHA256 'larpiano-windows-x64.zip').Hash.ToLowerInvariant()
+          "$hash  larpiano-windows-x64.zip" | Set-Content -Encoding ascii SHA256SUMS.txt
+      - name: Create release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create $env:GITHUB_REF_NAME larpiano-windows-x64.zip SHA256SUMS.txt --verify-tag --title "larpiano $env:GITHUB_REF_NAME" --notes "Windows x64: download the ZIP, extract all files and run Keynote.App.exe. A verified mapping for your specific piano is required. See README for setup and limitations."
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
