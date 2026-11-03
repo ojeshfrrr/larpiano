@@ -8,7 +8,7 @@ For the short workflow, select the Roblox window and a library song on Player, f
 
 Download the Windows x64 ZIP from [GitHub Releases](https://github.com/ojeshfrrr/larpiano/releases/latest), extract the entire ZIP, and run `Keynote.App.exe`. Songs and mappings are not bundled. The application requires a verified mapping for the specific piano.
 
-Website: https://ojeshfrrr.github.io/larpiano/
+Website: https://larpiano.portways.app/
 
 ## Build and run
 
