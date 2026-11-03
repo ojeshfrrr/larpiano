@@ -1,0 +1,26 @@
+.larp-demo{--demo-ink:#f1ebdf;--demo-dim:#c9c0d1;--demo-accent:#c4b1f4;color:var(--demo-ink);background:#191323;border:1px solid #5e5269;padding:clamp(16px,2.8vw,30px);overflow:hidden}
+.larp-demo *{box-sizing:border-box}
+.larp-demo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.larp-demo-head h2{font:550 clamp(28px,3vw,42px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.045em;margin:0}
+.larp-demo-head p{max-width:470px;color:var(--demo-dim);margin:8px 0 0;line-height:1.55;font-size:14px}
+.larp-demo-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.larp-demo-controls button{min-height:44px;padding:10px 16px;border:1px solid #a192b3;border-radius:4px;font:700 13px Manrope,system-ui,sans-serif;cursor:pointer;color:#f1ebdf;background:#332641}
+.larp-demo-controls button:hover{background:#504060;text-decoration:underline;text-underline-offset:3px}
+.larp-demo-controls button:active{transform:translateY(1px)}
+.larp-demo-controls button:focus-visible{outline:3px solid #f1ebdf;outline-offset:3px}
+.larp-demo-controls button.larp-demo-sound{background:#c4b1f4;border-color:#c4b1f4;color:#251c2b}
+.larp-demo-controls button.larp-demo-sound:hover{background:#e1d8f9}
+.larp-demo-status{color:var(--demo-dim);font-size:12px;margin:12px 0 0;min-height:1.5em}
+.larp-demo-flow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:23px 0 10px;color:#c9c0d1;font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.larp-demo-flow span:last-child{text-align:right}
+.larp-demo-stage{height:clamp(160px,20vw,260px);position:relative;overflow:hidden;background:#110e19;border:1px solid #53495e;border-bottom:0}
+.larp-demo-stage:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to right,transparent 0,transparent calc(12.5% - 1px),#3a3041 calc(12.5% - 1px),#3a3041 12.5%);pointer-events:none}
+.larp-demo-note{position:absolute;top:0;height:12px;min-width:5px;border-radius:3px;background:#c4b1f4;opacity:0;will-change:transform}
+.larp-demo-hitline{position:absolute;bottom:0;left:0;right:0;height:2px;background:#c4b1f4;opacity:.75}
+.larp-demo-keys{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;height:64px;background:#110e19;border:1px solid #53495e;border-top:0;padding:0 3px 3px}
+.larp-demo-key{position:relative;background:#f1ebdf;border-radius:0 0 4px 4px;color:#5d5160;transition:background .08s}
+.larp-demo-key span{position:absolute;bottom:5px;left:0;right:0;text-align:center;font-size:10px;font-weight:800}
+.larp-demo-key.is-active{background:#bca4f2;color:#201628}
+.larp-demo-caption{color:#c9c0d1;font-size:12px;line-height:1.5;margin:10px 0 0}
+@media(max-width:600px){.larp-demo-head{gap:14px}.larp-demo-controls{width:100%}.larp-demo-controls button{flex:1}.larp-demo-stage{height:180px}.larp-demo-keys{height:52px}}
+@media(prefers-reduced-motion:reduce){.larp-demo-key{transition:none}.larp-demo-controls button:active{transform:none}}
