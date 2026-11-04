@@ -9,6 +9,7 @@ public partial class MainWindow {
   new("Kanye West","Runaway"),new("Kanye West","I Wonder"),new("Kanye West","Heartless"),new("Kanye West","Flashing Lights"),new("Kanye West","Ghost Town"),new("Kanye West","Violent Crimes"),new("Kanye West","Hey Mama"),
   new("Kanye West","Jail"),
   new("Kanye West","Pure Souls"),
+  new("Lana Del Rey","The Grants"),
   new("Clairo","Bags"),new("Clairo","Sofia"),new("Clairo","Pretty Girl"),new("Clairo","Amoeba"),new("Clairo","Bubble Gum"),new("Clairo","Juna"),new("Clairo","Sexy to Someone"),
   new("Laufey","From the Start"),new("Laufey","Valentine"),new("Laufey","Promise"),new("Laufey","Let You Break My Heart Again"),new("Laufey","Falling Behind"),new("Laufey","Bewitched"),new("Laufey","Like the Movies"),
   new("The Weeknd","Blinding Lights"),new("The Weeknd","Die for You"),new("The Weeknd","Save Your Tears"),new("The Weeknd","Starboy"),new("The Weeknd","Call Out My Name"),new("The Weeknd","The Hills"),new("The Weeknd","Out of Time"),
