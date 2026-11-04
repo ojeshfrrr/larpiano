@@ -1078,5 +1078,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 101.333308,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "2f608ecafe17a928e9df4732cb1f10bc2778bb7e9a5e41d21d684024d4f6f042",
+    "title": "Peacherine Rag",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=335",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1425,
+    "excludedNotes": 0,
+    "notesAdjusted": 25,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 133.125,
+    "modification": "25 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
