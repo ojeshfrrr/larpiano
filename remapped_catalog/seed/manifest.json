@@ -853,5 +853,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 177.6502,
     "modification": "124 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "28bd84fdb36afa1559c63564c6cb2a6d5d5c9964d118556c35cb03bc3fa2a1d6",
+    "title": "Etüde Ges-Dur",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=926",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1628,
+    "excludedNotes": 0,
+    "notesAdjusted": 71,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 90.1659,
+    "modification": "71 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
