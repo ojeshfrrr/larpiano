@@ -115,7 +115,7 @@ class StaticCatalogTests(unittest.TestCase):
     def test_catalog_and_midi_work_without_database_credentials(self):
         with patch.dict(os.environ, {}, clear=True), patch.object(server, "seed_cache", None):
             songs = server.list_songs()
-            self.assertEqual(len(songs), 12)
+            self.assertEqual(len(songs), 13)
             for entry in songs:
                 midi = server.get_song(entry["sha256"])
                 self.assertEqual(hashlib.sha256(midi).hexdigest(), entry["sha256"])
