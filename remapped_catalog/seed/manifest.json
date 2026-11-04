@@ -1273,5 +1273,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 252.91655,
     "modification": "88 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "5c6f343e1f2cf39f77bbad39caf58defd5a5e4bcb31e5b9d9ffc2b73a0e3ca59",
+    "title": "Sonata No. 19 (1st Movement: Andante)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=912",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1273,
+    "excludedNotes": 0,
+    "notesAdjusted": 18,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 134.38755,
+    "modification": "18 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
