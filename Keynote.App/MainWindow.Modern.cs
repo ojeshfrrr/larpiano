@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Keynote.Online;
 namespace Keynote.App;
 
 public partial class MainWindow {
@@ -19,7 +20,38 @@ public partial class MainWindow {
  void InitializeModernPicks() => ApplyModernFilter();
  void ModernFilterChanged(object sender,TextChangedEventArgs e) => ApplyModernFilter();
  void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); ModernList.ItemsSource=ModernPicks.Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
- void ModernSelected(object sender,SelectionChangedEventArgs e) { if(ModernDetails==null || ModernSearchButton==null || ModernLibraryButton==null)return; var pick=ModernList.SelectedItem as ModernPick; ModernSearchButton.IsEnabled=pick!=null; ModernLibraryButton.IsEnabled=pick!=null; ModernDetails.Text=pick==null?"Select a song to search for a MIDI or find it in your library.":$"{pick.Title}\n{pick.Artist}\n\nSearch results may be unavailable or have limited usage rights. Your library may contain a different arrangement."; }
+ CancellationTokenSource? modernDownloadCancellation;
+ LibraryEntry? FindLocalModern(ModernPick pick) => libraryEntries.FirstOrDefault(e => e.Artist.Equals(pick.Artist,StringComparison.OrdinalIgnoreCase) && (e.Title.Equals(pick.Title,StringComparison.OrdinalIgnoreCase) || e.Title.StartsWith(pick.Title+" ",StringComparison.OrdinalIgnoreCase)));
+ void ModernSelected(object sender,SelectionChangedEventArgs e) {
+  modernDownloadCancellation?.Cancel();
+  if(ModernDetails==null || ModernSearchButton==null || ModernLibraryButton==null || ModernDownloadButton==null)return;
+  var pick=ModernList.SelectedItem as ModernPick; ModernSearchButton.IsEnabled=pick!=null; ModernLibraryButton.IsEnabled=pick!=null;
+  var local=pick==null?null:FindLocalModern(pick); var direct=pick==null?null:ModernDownloads.Find(pick.Artist,pick.Title);
+  ModernDownloadButton.IsEnabled=pick!=null && (local!=null || direct!=null);
+  ModernDownloadButton.Content=local!=null?"Select from library":"Download and select";
+  ModernDetails.Text=pick==null?"Select a song to search for a MIDI or find it in your library.":$"{pick.Title}\n{pick.Artist}\n\n"+(local!=null?"A personal copy is available in your library.":direct!=null?"A free original arrangement is available from its creator. Check your piano mapping and adjust any unmapped notes before playing.":"Direct download is unavailable for this title. Search MIDI sources or import your own copy.");
+ }
+ async void DownloadModern(object sender,RoutedEventArgs e) {
+  if(ModernList.SelectedItem is not ModernPick pick || library==null || downloads==null)return;
+  modernDownloadCancellation?.Cancel(); var request=new CancellationTokenSource(); modernDownloadCancellation=request; ModernDownloadButton.IsEnabled=false;
+  try {
+   var local=FindLocalModern(pick);
+   if(local==null) {
+    var item=ModernDownloads.Find(pick.Artist,pick.Title) ?? throw new InvalidOperationException("No direct download is available for this song.");
+    ModernDetails.Text="Downloading and verifying the creator's MIDI…";
+    var progress=new Progress<double>(p=> { if(ReferenceEquals(modernDownloadCancellation,request))ModernDetails.Text=$"Downloading {p:P0}…"; });
+    var saved=await new ModernDownloads(downloads,library).DownloadAsync(item,progress,request.Token);
+    request.Token.ThrowIfCancellationRequested(); await ReloadLibrary(request.Token);
+    local=libraryEntries.FirstOrDefault(x=>x.Sha256==saved.Entry.Sha256) ?? throw new InvalidOperationException("The saved song was not found in your library.");
+   }
+   request.Token.ThrowIfCancellationRequested();
+   if(!ReferenceEquals(ModernList.SelectedItem,pick))return;
+   if(ReferenceEquals(PlayerSongSelector.SelectedItem,local))await LoadLibrarySelection(local,()=>PlayerSongSelector.SelectedItem as LibraryEntry);
+   else PlayerSongSelector.SelectedItem=local;
+   MainTabs.SelectedIndex=0;
+  } catch(OperationCanceledException) { } catch(Exception ex) { if(ReferenceEquals(modernDownloadCancellation,request))ModernDetails.Text="Could not download or select this song: "+ex.Message; }
+  finally { if(ReferenceEquals(modernDownloadCancellation,request)) { modernDownloadCancellation=null; var selected=ModernList.SelectedItem as ModernPick; ModernDownloadButton.IsEnabled=selected!=null && (FindLocalModern(selected)!=null || ModernDownloads.Find(selected.Artist,selected.Title)!=null); } request.Dispose(); }
+ }
  async void SearchModern(object sender,RoutedEventArgs e) => await SearchModernAsync();
  async Task SearchModernAsync() { if(ModernList.SelectedItem is not ModernPick pick)return; MainTabs.SelectedIndex=1; CatalogSelector.SelectedIndex=0; SearchQuery.Text=$"{pick.Artist} {pick.Title}"; searchDebouncer?.Cancel(); await SearchOnlineAsync(0,true,CancellationToken.None); }
  void FindModernInLibrary(object sender,RoutedEventArgs e) { if(ModernList.SelectedItem is not ModernPick pick)return; LibraryQuery.Text=pick.Title; MainTabs.SelectedIndex=3; }
