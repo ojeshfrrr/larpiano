@@ -1198,5 +1198,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 372.9106,
     "modification": "96 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "eb0aa3fa4ab0c0f09931cbbf47a6abe6975672d7ff33636befd9ff2e5dafdc0f",
+    "title": "Sonate 2 b-moll",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1727",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1808,
+    "excludedNotes": 0,
+    "notesAdjusted": 29,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 82.49995,
+    "modification": "29 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
