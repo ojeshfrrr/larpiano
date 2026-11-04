@@ -373,5 +373,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 82.788451,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "3a307179dc100e220066f775dc72958cdf9a3e86d201982e81d02062752d00c6",
+    "title": "Trois Nouvelles Etudes, No. 1 F Minor",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1895",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 1,
+    "keptNotes": 829,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 160.8,
+    "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
   }
 ]
