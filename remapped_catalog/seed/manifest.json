@@ -133,5 +133,50 @@
     "attribution": "Mutopia Project, maintained by Chris Sawer.",
     "durationSeconds": 252.916566,
     "modification": "2 notes individually adjusted by octaves; 0 notes omitted."
+  },
+  {
+    "sha256": "3cff7cadc81555e2d1c2237c8fabbabba2bf4c6ef607a0df2421ada16a845b6c",
+    "title": "In the Hall of the Mountain King",
+    "artist": "Edvard Grieg",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1888",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1453,
+    "excludedNotes": 0,
+    "notesAdjusted": 226,
+    "attribution": "Mutopia Project, maintained by Coyau.",
+    "durationSeconds": 145.2294,
+    "modification": "226 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "4670e63225c2a0249bf0b10f9c62bdc2d04cf3ba15f0b1321d9b03745134023f",
+    "title": "Minute Waltz",
+    "artist": "Frédéric Chopin",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=483",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1370,
+    "excludedNotes": 0,
+    "notesAdjusted": 3,
+    "attribution": "Mutopia Project, maintained by Magnus Lewis-Smith.",
+    "durationSeconds": 89.7854,
+    "modification": "3 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "9bd275922924deb62d1797aa0d04dbb34157bcad9a92816059eec5bd3698a9c0",
+    "title": "Maple Leaf Rag",
+    "artist": "Scott Joplin",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=23",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2566,
+    "excludedNotes": 0,
+    "notesAdjusted": 16,
+    "attribution": "Mutopia Project, maintained by Chris Sawer.",
+    "durationSeconds": 144,
+    "modification": "16 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
