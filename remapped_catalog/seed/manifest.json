@@ -223,5 +223,20 @@
     "attribution": "Mutopia Project, maintained by Magnus Lewis-Smith.",
     "durationSeconds": 280.55475,
     "modification": "212 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "d9150c463049a2b55711aefcebd4c9ede92ca29eaef5e1ed8a8e9c8eb482391b",
+    "title": "Giselle - Pas de deux (1er Acte)",
+    "artist": "A. Adam (1803–1856)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=897",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 541,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 71.625,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
