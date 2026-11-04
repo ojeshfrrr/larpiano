@@ -193,5 +193,20 @@
     "attribution": "Mutopia Project, maintained by Rune Zedeler and Chris Sawer.",
     "durationSeconds": 255,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "4b1f16c332e2ac8229a029367731e8bc94ac9450af8416c9b62a84dd1b19568e",
+    "title": "Arabesque No. 1",
+    "artist": "Claude Debussy",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1448,
+    "excludedNotes": 0,
+    "notesAdjusted": 28,
+    "attribution": "Mutopia Project, maintained by Keith OHara.",
+    "durationSeconds": 176.2497,
+    "modification": "28 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
