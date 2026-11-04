@@ -1348,5 +1348,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 204.9295,
     "modification": "3 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "bbc781ca46ebd2e22e4fc9976a5fd5647c1da43dc7d545525c4b87d0244e251f",
+    "title": "Sonata No. 20 (2nd Movement: Tempo di Menuetto)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=777",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1280,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 160.746199,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
