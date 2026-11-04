@@ -403,5 +403,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 216,
     "modification": "67 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "f3a0a1229f78295daddca80b5419f0b12b7e02adaa8e7f6e06a1c270f6c7dbf7",
+    "title": "Possum And Taters",
+    "artist": "C. Hunter (1876–1906)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2012",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1229,
+    "excludedNotes": 0,
+    "notesAdjusted": 14,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 177.5,
+    "modification": "14 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
