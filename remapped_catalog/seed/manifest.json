@@ -613,5 +613,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 156.75,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "2240f5207709a1d984bf4b0a8831132ae13b1553e43be64ac04a3b0ffc7b2ad6",
+    "title": "Lieder ohne Worte: Venetianisches Gondellied, Op.30 No.6",
+    "artist": "F. Mendelssohn-Bartholdy (1809–1847)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1741",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 578,
+    "excludedNotes": 0,
+    "notesAdjusted": 3,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 165.5,
+    "modification": "3 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
