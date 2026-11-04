@@ -1438,5 +1438,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 172.96875,
     "modification": "23 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "8144c4c0a1e7a4a47ec3c8d77547cd05504d4c0f04cbbec826ce63b559fc4620",
+    "title": "Sonata No. 25 (1st Movement: Presto alla tedesca)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=955",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2075,
+    "excludedNotes": 0,
+    "notesAdjusted": 4,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 149.03195,
+    "modification": "4 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
