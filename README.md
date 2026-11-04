@@ -85,3 +85,7 @@ The Updater tab checks the latest published stable GitHub release over HTTPS wit
 The Remapped music tab lists public-domain arrangements prepared for the Visual Pianos C2–C7 layout. Search, select an arrangement, then choose **Download and select**. The app checks the download's SHA-256 and imports it through the normal MIDI library; it applies the arrangement's recommended octave, but never automatically marks a mapping verified. Use **Load piano layout** to start with the included unverified Visual Pianos reference, then test and verify your own piano before playback. The catalog details identify the original source, license, attribution and note changes. The individual arrangements have not all been tested in Roblox.
 
 The catalog and its small MIDI files are served by the existing Portways website, with no additional database required. Only reviewed public-domain files are redistributed. See `remapped_catalog/README.md` for operation and the optional future PostgreSQL backend.
+
+### Modern picks
+
+The Modern picks tab keeps the requested artist and song shortlist separate from the remapped catalogue. Select a title to search the existing discovery providers or filter your local library. The shortlist does not include, host, or guarantee MIDI files for these songs, and they are not pre-mapped. Check the source terms and inspect any MIDI before playback.
