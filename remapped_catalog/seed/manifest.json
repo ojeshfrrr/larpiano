@@ -1063,5 +1063,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 375.28365,
     "modification": "233 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "b9328cbeaa149c49eab925794e94f3b95f579a41e4d9c781c953aad0b940bf63",
+    "title": "Prelude: Op. 28, No. 6",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=469",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 1,
+    "keptNotes": 405,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 101.333308,
+    "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
   }
 ]
