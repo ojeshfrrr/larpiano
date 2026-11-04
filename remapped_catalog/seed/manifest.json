@@ -1168,5 +1168,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 74.285692,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "21ef2b529c4cb2bf095cdeda1deed7642f31dfb08b853d6022b0269346367f67",
+    "title": "Solace",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=482",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2164,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 246.249902,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
