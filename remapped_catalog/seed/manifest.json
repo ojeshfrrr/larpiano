@@ -688,5 +688,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 82.7082,
     "modification": "18 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "0971e845ef821deefb35a5f8a651fe25b98f5fbd27cccd22928266b7e1a2a56d",
+    "title": "Lualåt (The Mountaineer's Song)",
+    "artist": "E. Grieg (1843–1907)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1628",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 527,
+    "excludedNotes": 0,
+    "notesAdjusted": 14,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 150,
+    "modification": "14 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
