@@ -463,5 +463,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 429.5,
     "modification": "91 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "94fb0e1db42655e9deaebffca8e94c9bf648e70b512cbc341f1aed76189f6590",
+    "title": "La Bayadère - Acte II",
+    "artist": "L. A. Minkus (1826–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=892",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 970,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 229.966116,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
