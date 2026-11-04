@@ -748,5 +748,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 255.77,
     "modification": "16 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "6b4c28b80a5a4ce6119468a75a020ad94ea4de227f62d175bd626b4e32307f07",
+    "title": "Minuet in B-flat major",
+    "artist": "J. S. Bach (1685–1750)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1014",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 225,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 78,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
