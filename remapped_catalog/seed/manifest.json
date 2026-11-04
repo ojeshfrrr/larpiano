@@ -1483,5 +1483,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 101.9564,
     "modification": "4 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "d28c7f10b50166fccb06370709ce2faab09f1301ec3d0ad12be5b62cd3b53773",
+    "title": "Sonata No. 27 (1st Movement: Mit Lebhaftigkeit)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=906",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2629,
+    "excludedNotes": 0,
+    "notesAdjusted": 126,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 282.3034,
+    "modification": "126 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
