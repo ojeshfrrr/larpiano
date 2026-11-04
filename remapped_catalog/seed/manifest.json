@@ -1258,5 +1258,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 198,
     "modification": "29 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "68d88c0df1e37466f36ac13fbf057fea82204ab13e1d9c683442a29b7b552025",
+    "title": "Sun Flower Slow Drag",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=465",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2691,
+    "excludedNotes": 0,
+    "notesAdjusted": 88,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 252.91655,
+    "modification": "88 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
