@@ -1138,5 +1138,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 268.6361,
     "modification": "76 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "662a9ac0cef7fdcd6a5c1ea20b9cbf23d79b52822a03613bee4901c9f8a793d6",
+    "title": "Sonata No. 8 “Pathétique” (3rd Movement: Rondo)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=296",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2385,
+    "excludedNotes": 0,
+    "notesAdjusted": 34,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 232.916,
+    "modification": "34 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
