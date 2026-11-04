@@ -1363,5 +1363,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 160.746199,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "26c4e7b29a559c6cb7199cf496fc30088d57eb8a5a211c558f967d43dd939b7f",
+    "title": "Sonata No. 23 “Appassionata” (2nd Movement: Andante con moto)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=288",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1492,
+    "excludedNotes": 0,
+    "notesAdjusted": 23,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 204,
+    "modification": "23 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
