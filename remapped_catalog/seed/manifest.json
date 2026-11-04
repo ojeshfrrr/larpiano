@@ -553,5 +553,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 984.5,
     "modification": "46 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "dee722f100797e53fe596a8eb6f574a6d36741427930882e866387c5e16701a0",
+    "title": "Etüde a-moll",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=508",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1458,
+    "excludedNotes": 0,
+    "notesAdjusted": 22,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 81.66655,
+    "modification": "22 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
