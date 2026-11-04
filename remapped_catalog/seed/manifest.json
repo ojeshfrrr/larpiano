@@ -343,5 +343,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 229.5,
     "modification": "7 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "137f813c0020b44b1d76a838ac0d01e67b25ed317144c902528d7a7f122a2ae2",
+    "title": "Waltz No. 15",
+    "artist": "J. Brahms (1833–1897)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=794",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 720,
+    "excludedNotes": 0,
+    "notesAdjusted": 27,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 67.75855,
+    "modification": "27 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
