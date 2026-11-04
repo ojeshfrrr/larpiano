@@ -988,5 +988,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 113.65385,
     "modification": "16 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "6899f07cca0e03edfe00c4eb7016336fea6e2dc4ead8c45a26d8dd457d43d345",
+    "title": "Eugenia",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=496",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1779,
+    "excludedNotes": 0,
+    "notesAdjusted": 37,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 181.32335,
+    "modification": "37 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
