@@ -1378,5 +1378,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 204,
     "modification": "23 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "3477fc5faa7b275aa09a23f8748d9aa8bbabbb43ac34feabba01c0b16e8816fb",
+    "title": "Sonata No. 23 “Appassionata” (3rd Movement: Allegro, ma non troppo - Presto)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=937",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 7250,
+    "excludedNotes": 0,
+    "notesAdjusted": 258,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 496.32605,
+    "modification": "258 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
