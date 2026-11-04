@@ -1408,5 +1408,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 308.86355,
     "modification": "49 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "5ab6a14e9de3885a93ab09763a96db2777765ea614412d057970d77fd007bac8",
+    "title": "Sonata No. 24 (1st Movement: Adagio cantabile)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1137",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2136,
+    "excludedNotes": 0,
+    "notesAdjusted": 12,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 198.68165,
+    "modification": "12 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
