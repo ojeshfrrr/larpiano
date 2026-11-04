@@ -943,5 +943,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 125.25,
     "modification": "76 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "4154c9f0f905520c29c9cff33721f8e746e6f860019ef8b2aa4781a1ef5f5798",
+    "title": "A Breeze From Alabama",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=485",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2946,
+    "excludedNotes": 0,
+    "notesAdjusted": 21,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 251.7072,
+    "modification": "21 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
