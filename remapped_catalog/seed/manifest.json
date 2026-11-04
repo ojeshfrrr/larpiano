@@ -208,5 +208,20 @@
     "attribution": "Mutopia Project, maintained by Keith OHara.",
     "durationSeconds": 176.2497,
     "modification": "28 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "d64b45d467adbf3bdba2c75be8878be7e6ddf31ca6caf24c4589e7cad164e4a0",
+    "title": "Symphony No. 5 (Piano Reduction)",
+    "artist": "Ludwig van Beethoven",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=497",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 4223,
+    "excludedNotes": 0,
+    "notesAdjusted": 212,
+    "attribution": "Mutopia Project, maintained by Magnus Lewis-Smith.",
+    "durationSeconds": 280.55475,
+    "modification": "212 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
