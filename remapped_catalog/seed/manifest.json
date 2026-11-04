@@ -883,5 +883,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 143.5,
     "modification": "15 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "3afc7418b8f8150558b8b4dc1544f56a04d6b08bc13b639d5f5aaad1496a4239",
+    "title": "Lied Ohne Worte - Opus 102, No. 3",
+    "artist": "F. Mendelssohn-Bartholdy (1809–1847)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=589",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 1,
+    "keptNotes": 1265,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 100.892615,
+    "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
   }
 ]
