@@ -538,5 +538,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 279,
     "modification": "33 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "69ce5adecb95db555ba251e87403b568655fa55784b91bf3f0e58de3e1bce3db",
+    "title": "EL PERDÓN DE PLOËRMEL",
+    "artist": "J. F. F. Burgmüller (1806–1874)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=972",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 3384,
+    "excludedNotes": 0,
+    "notesAdjusted": 46,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 984.5,
+    "modification": "46 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
