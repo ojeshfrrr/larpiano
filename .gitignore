@@ -10,3 +10,7 @@ TestResults/
 /publish*/
 /verification/
 /visual-pianos-c2.json
+
+# Python cache
+__pycache__/
+*.pyc

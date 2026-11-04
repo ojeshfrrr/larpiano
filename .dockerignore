@@ -1,5 +1,10 @@
 **
 !website/
 !website/**
+!remapped_catalog/
+!remapped_catalog/server.py
+!remapped_catalog/requirements.txt
+!remapped_catalog/seed/
+!remapped_catalog/seed/**
 !Dockerfile
 !.dockerignore
