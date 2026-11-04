@@ -1183,5 +1183,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 246.249902,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "4a5f39de5b3e0f36ecb9b83b4940509a8dc6fa64f3f24a37ff24e07ec8ef6776",
+    "title": "Sonata No. 17 (1st Movement: Largo - Allegro)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1509",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2864,
+    "excludedNotes": 0,
+    "notesAdjusted": 96,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 372.9106,
+    "modification": "96 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
