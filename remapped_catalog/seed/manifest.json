@@ -1123,5 +1123,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 267,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "41c23e746e45690beffc0274f424de37089b2706c78155e8a0939a38e526c6d0",
+    "title": "Search-Light Rag",
+    "artist": "S. Joplin (1868–1917)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=275",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2602,
+    "excludedNotes": 0,
+    "notesAdjusted": 76,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 268.6361,
+    "modification": "76 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
