@@ -1,0 +1,19 @@
+# Remapped song source research
+
+Research date: 2026-11-04. The target is a catalogue of recognizable songs, with modern titles preferred. A free download does not by itself establish a right to redistribute a MIDI arrangement. Check the composition and the arrangement separately, preserve credits and license links, and check whether an adaptation is permitted before adding a file.
+
+## Investigated sources
+
+- [Mutopia](https://www.mutopiaproject.org/) supplies MIDI editions with per-piece licensing and maintainer credits. Its catalogue is predominantly classical. The live additions use individual pieces explicitly marked Public Domain and list their source page and maintainer in the manifest. A downloadable file can still fail our importer or mapping checks: the source edition of Gymnopédie No. 1 failed because track 2 contains an unmatched note-off and is not included.
+- [Kevin MacLeod / Incompetech](https://music.kevin.macleod.incompetech.com/music/royalty-free/faq.html) publishes compositions under CC BY, with credit required and changes identified. The official [Monkeys Spinning Monkeys page](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400011) supplies CC BY 4.0 attribution for that well-known track. This does not establish a license for a MIDI transcription made by someone else. MacLeod's [Disquiet page](https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1500036) says its download includes an original MIDI; its popularity and availability have not been verified for our catalogue. The composer's [November 2025 announcement](https://incompetech.com/wordpress/2025-November-December.html) says an extended collection including MIDI is bundled with the main site download; it is not established here that the desired pieces are in that collection or that it is free.
+- [MidiShow's Sneaky Snitch download page](https://www.midishow.com/en/midi/download?id=132399%2F1000) identifies a CC BY 4.0 MIDI, but requires an account and points. Its [terms](https://www.midishow.com/page/tos) say uploader licensing claims are not guaranteed and describe additional authorization requirements for commercial use. Verify the arranger's rights and terms directly before relying on a listing; do not bypass the account or points system.
+- The [Public Domain Song Anthology](https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi%3A10.18130%2FV3%2FC4RD06) is a CC0 collection containing MusicXML scores, including older popular and folk songs. It is a research candidate, not an imported source: check each arrangement and applicable jurisdiction, convert and inspect each file, and evaluate recognizability and playability. Current catalogue clients restrict source references to Mutopia, so supporting another source also requires a compatible client and catalogue rollout.
+- [MIDI Collection](https://midicollection.com/) advertises free downloads but does not establish redistribution permission for each arrangement. The same issue applies to other bulk MIDI archives. A dataset or repository license alone is not proof of rights in each song.
+
+## Admission checklist
+
+1. Record composition rights, arrangement rights, source URL, creator, license, and attribution requirements for the exact file.
+2. Validate and import the actual MIDI through the existing importer; reject malformed or empty files.
+3. Check the unverified Visual Pianos reference mapping with the playback event builder. Record octave changes and omitted notes; do not label an arrangement as tested in Roblox unless it was actually tested.
+4. Store the remapped file by SHA-256, record its original source and changes, run the catalogue and playback tests, and verify the hosted bytes against the published hash.
+5. For non-Mutopia sources, provide backward-compatible catalogue and client support before publishing; do not substitute an unrelated source URL.
