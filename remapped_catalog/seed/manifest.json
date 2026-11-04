@@ -238,5 +238,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 71.625,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "6653f25657884095e0c2384e5ba2e2a7b62035117b04675c4362dc10f8357a64",
+    "title": "Rumores de la Caleta",
+    "artist": "I. M. F. Albéniz (1860–1909)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=898",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1428,
+    "excludedNotes": 0,
+    "notesAdjusted": 52,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 261.9922,
+    "modification": "52 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
