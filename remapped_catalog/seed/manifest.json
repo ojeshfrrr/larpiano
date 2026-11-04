@@ -598,5 +598,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 177.2625,
     "modification": "20 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "7d93b5766f58d7e2f526135d6504eb65bfd1f9922dcf2dd020a01d6022f7329f",
+    "title": "Sonatine I - Rondo",
+    "artist": "F. Kuhlau (1786–1832)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=234",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1747,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 156.75,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
