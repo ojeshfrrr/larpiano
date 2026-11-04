@@ -14,7 +14,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
   </ItemGroup>
 
-  <ItemGroup><None Update="Fixtures\**\*" CopyToOutputDirectory="PreserveNewest" /></ItemGroup>
+  <ItemGroup><None Update="Fixtures\**\*" CopyToOutputDirectory="PreserveNewest" /><None Include="..\remapped_catalog\seed\**\*" Link="RemappedSeed\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" /></ItemGroup>
 
   <ItemGroup>
     <Using Include="Xunit" />

@@ -79,3 +79,9 @@ The published executable has a hidden `--workflow-test` mode for isolated backgr
 ## Updates
 
 The Updater tab checks the latest published stable GitHub release over HTTPS without requiring GitHub CLI or an account. It compares three-part version tags such as `v1.0.1` with the installed assembly version. The tab opens the GitHub releases page; installation is manual and no executable is automatically downloaded or replaced.
+
+## Remapped music
+
+The Remapped music tab lists public-domain arrangements prepared for the Visual Pianos C2–C7 layout. Search, select an arrangement, then choose **Download and select**. The app checks the download's SHA-256 and imports it through the normal MIDI library; it applies the arrangement's recommended octave, but never automatically marks a mapping verified. Verify your own piano layout before playback. The catalog details identify the original source, license, attribution and note changes. The individual arrangements have not all been tested in Roblox.
+
+The catalog and its small MIDI files are served by the existing Portways website, with no additional database required. Only reviewed public-domain files are redistributed. See `remapped_catalog/README.md` for operation and the optional future PostgreSQL backend.
