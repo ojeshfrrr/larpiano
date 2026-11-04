@@ -913,5 +913,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 70.625,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "638787f92d4be4ff1c7c02391c7360cc05dade89f0b97f3c8d524a9df1160f56",
+    "title": "Sonata No. 6 (1st Movement: Allegro)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=992",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2552,
+    "excludedNotes": 0,
+    "notesAdjusted": 23,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 254.6875,
+    "modification": "23 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
