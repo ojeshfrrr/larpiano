@@ -328,5 +328,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 120,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "d1677065da9e63ae66d2768f5f896c7b6f178c97cd46676d6674804dbab0a849",
+    "title": "Les Deux Anges",
+    "artist": "J. Blumenthal (1829–1908)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=611",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1038,
+    "excludedNotes": 0,
+    "notesAdjusted": 7,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 229.5,
+    "modification": "7 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
