@@ -1,4 +1,7 @@
 using System.Windows;
+using System.IO;
+using System.Text.Json;
+using Keynote.Core;
 using System.Windows.Controls;
 using Keynote.Online;
 namespace Keynote.App;
@@ -23,6 +26,17 @@ public partial class MainWindow {
  void RemappedSelected(object sender,SelectionChangedEventArgs e) {
   if(RemappedList.SelectedItem is not RemappedSong item) { RemappedDownload.IsEnabled=false; RemappedDetails.Text="Select a song to see its source and mapping details."; return; }
   RemappedDownload.IsEnabled=true; RemappedDetails.Text=$"{item.Title}\n{item.Artist}\n\nPiano: {item.Profile}\nRecommended octave: {item.Octave:+0;-0;0}\nNotes: {item.KeptNotes}; omitted: {item.ExcludedNotes}\n{item.Modification}\n\n{item.Attribution}\nLicense: {item.License}\nSource: {item.Source}\n\nPrepared from the listed source; this individual arrangement has not been confirmed in Roblox. Test and verify your own mapping.";
+ }
+ void LoadRemappedProfile(object sender,RoutedEventArgs e) {
+  if(MessageBox.Show("Replace your current key mapping with the Visual Pianos reference layout? You will need to test and verify it for your piano.","Load piano layout",MessageBoxButton.YesNo,MessageBoxImage.Question)!=MessageBoxResult.Yes)return;
+  try { ApplyRemappedProfile(); MainTabs.SelectedIndex=4; CalibrationStatus.Text="Reference layout loaded but not verified. Test the keys against your piano, then verify the profile."; }
+  catch(Exception ex) { RemappedStatus.Text="Could not load the piano layout: "+ex.Message; }
+ }
+ void ApplyRemappedProfile() {
+  var resource=Application.GetResourceStream(new Uri("/Keynote.App;component/Assets/visual-pianos-reference.json",UriKind.Relative)) ?? throw new InvalidDataException("The piano layout is missing.");
+  using var stream=resource.Stream; var loaded=JsonSerializer.Deserialize<KeyboardMapping>(stream) ?? throw new InvalidDataException("The piano layout is invalid.");
+  if(loaded.Keys==null || loaded.Keys.Count==0 || loaded.Keys.Any(k=>k.Key is <0 or >127 || !KeyboardMapping.IsValidKey(k.Value)) || loaded.Duplicates().Any())throw new InvalidDataException("The piano layout is invalid.");
+  InvalidateMappingSession(); loaded.Verified=false; profile=loaded; foreach(var row in rows)row.Key=profile.Keys.GetValueOrDefault(row.Pitch,""); MappingGrid.Items.Refresh(); UpdateMapping(); SavePlayerPreferences();
  }
  async void DownloadRemapped(object sender,RoutedEventArgs e)=>await DownloadRemappedAsync();
  async Task DownloadRemappedAsync() {
