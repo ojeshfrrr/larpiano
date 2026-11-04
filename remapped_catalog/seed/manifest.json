@@ -268,5 +268,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 95.769218,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "c9a32f26fc36a4e1890119dfe59859f115a51f801cffd010543a7fa4afd6d134",
+    "title": "Alice, Where Art Thou?",
+    "artist": "J. Ascher (1829–1869)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=449",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 3660,
+    "excludedNotes": 0,
+    "notesAdjusted": 276,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 366.5,
+    "modification": "276 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
