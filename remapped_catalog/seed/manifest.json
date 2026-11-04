@@ -1093,5 +1093,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 133.125,
     "modification": "25 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "12ae86fbb22cece08b54bf73e843a4a375d4b267bec9704326af5ee374765d42",
+    "title": "Sonata No. 8 “Pathétique” (2nd Movement: Adagio cantabile)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=295",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1629,
+    "excludedNotes": 0,
+    "notesAdjusted": 31,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 243.33325,
+    "modification": "31 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
