@@ -733,5 +733,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 155.8594,
     "modification": "35 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "0838985714b9f16fa617516df727e3adfcfd5fc64687b5c258cb998c69e46b63",
+    "title": "Piano Sonata in C Major - KV 309 (1st Part)",
+    "artist": "W. A. Mozart (1756–1791)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1379",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2378,
+    "excludedNotes": 0,
+    "notesAdjusted": 16,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 255.77,
+    "modification": "16 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
