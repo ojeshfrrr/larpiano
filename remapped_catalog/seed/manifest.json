@@ -958,5 +958,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 251.7072,
     "modification": "21 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "78e406f6b4ad3b1458424460cfc2d0072df7c6e3d3e3b3c9c1373fbc464a2ec9",
+    "title": "Sonata No. 6 (2nd Movement: Allegretto)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=993",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1233,
+    "excludedNotes": 0,
+    "notesAdjusted": 12,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 170.56145,
+    "modification": "12 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
