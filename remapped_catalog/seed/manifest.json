@@ -478,5 +478,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 229.966116,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "a7c5d9f65fb02af571f390050eaa5b9e6d6a63932494f226dfe6354fa7dd853d",
+    "title": "Fugue in E-flat Major KV 153/375f",
+    "artist": "W. A. Mozart (1756–1791)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=424",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1021,
+    "excludedNotes": 0,
+    "notesAdjusted": 3,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 144.1362,
+    "modification": "3 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
