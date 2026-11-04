@@ -823,5 +823,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 100,
     "modification": "18 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "0946fa8ab89a3340e53edacb213bbc3e21e45522057b062614ccdfc8e99ffc66",
+    "title": "Minuet in A minor",
+    "artist": "J. S. Bach (1685–1750)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1612",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 165,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 63.75,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
