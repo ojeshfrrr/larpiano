@@ -508,5 +508,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 86.4,
     "modification": "Original MIDI; no notes omitted or adjusted."
+  },
+  {
+    "sha256": "51abd326761f255802956dd6ccb90ea25e1a4ecc8e366dc794d3a7ee6e7369ea",
+    "title": "Sonata No. 1 (3rd Movement: Allegretto)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1276",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 623,
+    "excludedNotes": 0,
+    "notesAdjusted": 2,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 78.2141,
+    "modification": "2 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
