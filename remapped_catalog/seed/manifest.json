@@ -253,5 +253,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 261.9922,
     "modification": "52 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "24f853db9d13d5db864f59a5876ae7bdf02ef2c5a6e17907d0844bf5c8b8d006",
+    "title": "Sonatine",
+    "artist": "J. André (1741–1799)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=207",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 1,
+    "keptNotes": 571,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 95.769218,
+    "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
   }
 ]
