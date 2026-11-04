@@ -433,5 +433,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 295.5,
     "modification": "26 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "1b70c1e815525367f8b4ed533843f062f7dc6511dd8bc1f00f68e03e54296c06",
+    "title": "Sonatine I - Allegro",
+    "artist": "F. Kuhlau (1786–1832)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=232",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1069,
+    "excludedNotes": 0,
+    "notesAdjusted": 2,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 158.5,
+    "modification": "2 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
