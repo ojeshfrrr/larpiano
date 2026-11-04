@@ -448,5 +448,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 158.5,
     "modification": "2 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "5882a53d9b6439430506d308bf837aedb3d69f22128d22c32222d79ae49001e0",
+    "title": "Scherzo in E minor",
+    "artist": "F. Mendelssohn-Bartholdy (1809–1847)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1653",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 2097,
+    "excludedNotes": 0,
+    "notesAdjusted": 91,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 429.5,
+    "modification": "91 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
