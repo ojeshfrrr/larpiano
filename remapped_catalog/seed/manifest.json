@@ -388,5 +388,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 160.8,
     "modification": "Original MIDI; no notes omitted or adjusted; playback uses octave +1."
+  },
+  {
+    "sha256": "69d25759b926646ad02d35927cc0b50178eb6c527347453999df4d40d25f77c8",
+    "title": "Ases Tod",
+    "artist": "E. Grieg (1843–1907)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=246",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 746,
+    "excludedNotes": 0,
+    "notesAdjusted": 67,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 216,
+    "modification": "67 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
