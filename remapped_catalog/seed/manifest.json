@@ -1048,5 +1048,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 217.5,
     "modification": "8 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "77fa1ec3f17293c265dc6b59dbcf429f585e5c54d24e4441f51623049ad4f00f",
+    "title": "Sonata No. 8 “Pathétique” (1st Movement: Grave, Allegro molto e con brio)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=299",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 4285,
+    "excludedNotes": 0,
+    "notesAdjusted": 233,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 375.28365,
+    "modification": "233 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
