@@ -313,5 +313,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 191.36815,
     "modification": "9 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "dc8205ec648e788568f743a3850f540edce264b365013c097b0854b46106fcac",
+    "title": "3. Satz aus der Sonate in G-Dur",
+    "artist": "J. A. Benda (1722–1795)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=45",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 463,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 120,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
