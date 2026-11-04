@@ -673,5 +673,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 262.99975,
     "modification": "6 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "d9cec75d53217d1c043e9ba0dd5c0127639297e6af67a19cd85f6a0477f6393b",
+    "title": "Etüde f-moll",
+    "artist": "F. F. Chopin (1810–1849)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=484",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1227,
+    "excludedNotes": 0,
+    "notesAdjusted": 18,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 82.7082,
+    "modification": "18 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
