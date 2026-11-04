@@ -628,5 +628,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 165.5,
     "modification": "3 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "d806d7e73232add66a1d299eaab17b0db2680b593506342eeb6d040bb33a93b3",
+    "title": "Fugue in G Minor KV 154/385k",
+    "artist": "W. A. Mozart (1756–1791)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=425",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 614,
+    "excludedNotes": 0,
+    "notesAdjusted": 2,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 117.81805,
+    "modification": "2 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
