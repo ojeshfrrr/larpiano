@@ -358,5 +358,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 67.75855,
     "modification": "27 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "cfba2544b8049f72bfda038620ff0543e9e1845b6e4d7431e4798f50ce06f716",
+    "title": "Ballade",
+    "artist": "J. F. F. Burgmüller (1806–1874)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=227",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 756,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 82.788451,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
