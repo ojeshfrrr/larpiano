@@ -283,5 +283,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 366.5,
     "modification": "276 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "ca9a940503121e0037877a3f91be9a83fa6cbfdfb59005fdef40f5264ae4f6b0",
+    "title": "Aria “Warum betrübst du dich”",
+    "artist": "J. S. Bach (1685–1750)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1622",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 131,
+    "excludedNotes": 0,
+    "notesAdjusted": 0,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 64,
+    "modification": "Original MIDI; no notes omitted or adjusted."
   }
 ]
