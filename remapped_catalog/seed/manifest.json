@@ -1423,5 +1423,20 @@
     "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
     "durationSeconds": 198.68165,
     "modification": "12 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
+  },
+  {
+    "sha256": "3bd648c9c73984b4993fdd2a765581fa0507d2ecedd7f21765458deaa0a3ff64",
+    "title": "Sonata No. 24 (2nd Movement: Allegro vivace)",
+    "artist": "L. V. Beethoven (1770–1827)",
+    "source": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1161",
+    "license": "Public Domain",
+    "profile": "Visual Pianos C2–C7 (calibration required)",
+    "octave": 0,
+    "keptNotes": 1812,
+    "excludedNotes": 0,
+    "notesAdjusted": 23,
+    "attribution": "Mutopia Project; contributor and source edition are identified on the linked source page.",
+    "durationSeconds": 172.96875,
+    "modification": "23 notes adjusted by octaves; 0 notes omitted. Timing is preserved in normalized form; non-note MIDI events were removed."
   }
 ]
