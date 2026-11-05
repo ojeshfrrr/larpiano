@@ -21,7 +21,8 @@ public partial class MainWindow {
  };
  void InitializeModernPicks() => ApplyModernFilter();
  void ModernFilterChanged(object sender,TextChangedEventArgs e) => ApplyModernFilter();
- void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); ModernList.ItemsSource=ModernPicks.Concat(friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s))).Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
+ void ModernFriendsFilterChanged(object sender,RoutedEventArgs e) => ApplyModernFilter();
+ void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s)); var picks=ModernFriendsOnly?.IsChecked==true ? shared : shared.Concat(ModernPicks); ModernList.ItemsSource=picks.Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
  async void ConnectFriends(object sender,RoutedEventArgs e) {
   if(onlineHttp==null || library==null)return;
   FriendsConnect.IsEnabled=false;
@@ -65,5 +66,5 @@ public partial class MainWindow {
  async void SearchModern(object sender,RoutedEventArgs e) => await SearchModernAsync();
  async Task SearchModernAsync() { if(ModernList.SelectedItem is not ModernPick pick)return; MainTabs.SelectedIndex=1; CatalogSelector.SelectedIndex=0; SearchQuery.Text=$"{pick.Artist} {pick.Title}"; searchDebouncer?.Cancel(); await SearchOnlineAsync(0,true,CancellationToken.None); }
  void FindModernInLibrary(object sender,RoutedEventArgs e) { if(ModernList.SelectedItem is not ModernPick pick)return; LibraryQuery.Text=pick.Title; MainTabs.SelectedIndex=3; }
- void ModernDoubleClick(object sender,MouseButtonEventArgs e) { if(ModernList.SelectedItem is ModernPick)SearchModern(sender,e); }
+ void ModernDoubleClick(object sender,MouseButtonEventArgs e) { if(ModernList.SelectedItem is not ModernPick)return; if(ModernDownloadButton.IsEnabled)DownloadModern(sender,e); else SearchModern(sender,e); }
 }
