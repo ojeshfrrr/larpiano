@@ -22,7 +22,7 @@ public partial class MainWindow {
  void InitializeModernPicks() => ApplyModernFilter();
  void ModernFilterChanged(object sender,TextChangedEventArgs e) => ApplyModernFilter();
  void ModernFriendsFilterChanged(object sender,RoutedEventArgs e) => ApplyModernFilter();
- void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s)); var picks=ModernFriendsOnly?.IsChecked==true ? shared : shared.Concat(ModernPicks); ModernList.ItemsSource=picks.Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
+ void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s)); var direct=ModernDownloads.Available.Where(x=>!ModernPicks.Any(p=>p.Artist.Equals(x.Artist,StringComparison.OrdinalIgnoreCase) && p.Title.Equals(x.Title,StringComparison.OrdinalIgnoreCase))).Select(x=>new ModernPick(x.Artist,x.Title)); var picks=ModernFriendsOnly?.IsChecked==true ? shared : shared.Concat(direct).Concat(ModernPicks); ModernList.ItemsSource=picks.Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
  async void ConnectFriends(object sender,RoutedEventArgs e) {
   if(onlineHttp==null || library==null)return;
   FriendsConnect.IsEnabled=false;
