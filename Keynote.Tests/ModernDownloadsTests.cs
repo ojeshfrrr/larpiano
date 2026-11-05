@@ -22,6 +22,11 @@ public class ModernDownloadsTests {
   Assert.Throws<InvalidOperationException>(()=>MidiDownloadService.ValidateEndpoint(new Uri("https://free-piano-tutorials-midi.s3.amazonaws.com/other.mid")));
   Assert.Null(ModernDownloads.Find("Kanye West","Runaway"));
  }
+ [Fact] public void PatreonRedirectMustMatchApprovedPost() {
+  var item=ModernDownloads.Find("Niall Horan","You Could Start A Cult")!;
+  Assert.True(ModernDownloads.IsApprovedPatreonRedirect(item.DownloadUri,new Uri("https://c10.patreonusercontent.com/4/patreon-media/p/post/84720121/example/1.mid?token=test")));
+  Assert.False(ModernDownloads.IsApprovedPatreonRedirect(item.DownloadUri,new Uri("https://c10.patreonusercontent.com/4/patreon-media/p/post/81977759/example/1.mid?token=test")));
+ }
  [Fact] public async Task ChangedFileIsRejectedBeforeSaving() {
   var data=await File.ReadAllBytesAsync(Path.Combine(AppContext.BaseDirectory,"Fixtures","test-c-major-scale.mid"));
   using var http=new HttpClient(new Handler((_,_)=>Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK){Content=new ByteArrayContent(data)})));

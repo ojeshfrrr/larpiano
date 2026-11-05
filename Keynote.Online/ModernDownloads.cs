@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace Keynote.Online;
 
@@ -23,7 +24,9 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
  public static bool IsApprovedPatreonRedirect(Uri original, Uri redirected) {
   if(!IsApprovedEndpoint(original) || !original.Host.Equals("www.patreon.com",StringComparison.OrdinalIgnoreCase) || redirected.Scheme!=Uri.UriSchemeHttps || !redirected.IsDefaultPort || !string.IsNullOrEmpty(redirected.UserInfo) || !string.IsNullOrEmpty(redirected.Fragment) || !redirected.Host.Equals("c10.patreonusercontent.com",StringComparison.OrdinalIgnoreCase))return false;
-  var post=original.Query.StartsWith("?h=80164739&",StringComparison.Ordinal)?"80164739":"80484800";
+  var match=Regex.Match(original.Query,@"^\?h=([0-9]+)&m=[0-9]+$",RegexOptions.CultureInvariant);
+  if(!match.Success)return false;
+  var post=match.Groups[1].Value;
   return redirected.AbsolutePath.StartsWith("/4/patreon-media/p/post/"+post+"/",StringComparison.Ordinal) && redirected.AbsolutePath.EndsWith(".mid",StringComparison.OrdinalIgnoreCase);
  }
  public async Task<(LibraryEntry Entry, bool Duplicate)> DownloadAsync(ModernDownload item, IProgress<double>? progress, CancellationToken token) {
