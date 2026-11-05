@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import hmac
 import json
 import logging
 import math
@@ -145,6 +146,34 @@ def get_song(digest: str):
     return data
 
 
+def private_authorized(header: str) -> bool:
+    token = os.environ.get("PRIVATE_CATALOG_TOKEN", "")
+    if len(token) < 24 or len(token) > 256 or not token.isascii():
+        return False
+    supplied = header.removeprefix("Bearer ") if header.startswith("Bearer ") else ""
+    return len(supplied) <= 256 and supplied.isascii() and hmac.compare_digest(supplied, token)
+
+
+def private_songs():
+    with DB_SLOTS, connect() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT metadata FROM private_catalog_songs ORDER BY metadata->>'title', sha256 LIMIT %s", (MAX_ENTRIES,))
+            return [row[0] for row in cur.fetchall()]
+
+
+def private_song(digest: str):
+    with DB_SLOTS, connect() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT midi FROM private_catalog_songs WHERE sha256=%s", (digest,))
+            row = cur.fetchone()
+    if row is None:
+        return None
+    data = bytes(row[0])
+    if len(data) < 14 or len(data) > MAX_MIDI_BYTES or hashlib.sha256(data).hexdigest() != digest or data[:4] != b"MThd":
+        raise ValueError("Stored MIDI failed integrity verification")
+    return data
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         args[0].settimeout(15)
@@ -168,6 +197,34 @@ class Handler(SimpleHTTPRequestHandler):
 
     def serve_api(self, head=False):
         path = urlsplit(self.path).path
+        if path == "/api/private/songs" or path.startswith("/api/private/songs/"):
+            if not private_authorized(self.headers.get("Authorization", "")):
+                self.send_json(401, {"error": "Invalid access code"}, head)
+                return True
+            try:
+                if path == "/api/private/songs":
+                    self.send_json(200, private_songs(), head)
+                    return True
+                match = re.fullmatch(r"/api/private/songs/([0-9a-f]{64})/midi", path)
+                if match is None:
+                    self.send_json(404, {"error": "Not found"}, head)
+                    return True
+                data = private_song(match.group(1))
+                if data is None:
+                    self.send_json(404, {"error": "Not found"}, head)
+                    return True
+                self.send_response(200)
+                self.send_header("Content-Type", "audio/midi")
+                self.send_header("Content-Length", str(len(data)))
+                self.send_header("Cache-Control", "private, no-store")
+                self.send_header("X-Content-Type-Options", "nosniff")
+                self.end_headers()
+                if not head:
+                    self.wfile.write(data)
+            except Exception as exc:
+                log.error("Private catalogue unavailable (%s)", type(exc).__name__)
+                self.send_json(503, {"error": "Private catalogue unavailable"}, head)
+            return True
         if path == "/api/remapped/songs":
             try:
                 self.send_json(200, list_songs(), head)

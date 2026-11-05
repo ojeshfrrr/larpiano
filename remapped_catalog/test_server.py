@@ -68,6 +68,7 @@ class HandlerTests(unittest.TestCase):
     def handler(self, path):
         h = server.Handler.__new__(server.Handler)
         h.path = path
+        h.headers = {}
         h.wfile = io.BytesIO()
         h.responses = []
         h.send_response = lambda code: h.responses.append(("status", code))
@@ -109,6 +110,26 @@ class HandlerTests(unittest.TestCase):
         for path in ("/%2e%2e/secrets", "/.env", "/foo%5cbar"):
             self.assertFalse(self.handler(path).safe_static())
         self.assertTrue(self.handler("/assets/favicon.svg").safe_static())
+
+    def test_private_catalog_requires_valid_code(self):
+        h = self.handler("/api/private/songs")
+        with patch.dict(os.environ, {"PRIVATE_CATALOG_TOKEN": "a" * 32}), patch.object(server, "private_songs") as fetch:
+            self.assertTrue(h.serve_api())
+            fetch.assert_not_called()
+            self.assertIn(("status", 401), h.responses)
+            h = self.handler("/api/private/songs")
+            h.headers["Authorization"] = "Bearer " + "a" * 32
+            fetch.return_value = [{"title": "Private"}]
+            self.assertTrue(h.serve_api())
+            self.assertIn(("status", 200), h.responses)
+            self.assertIn(("Cache-Control", "no-store"), h.responses)
+
+    def test_private_download_never_uses_public_cache(self):
+        h = self.handler("/api/private/songs/" + "a" * 64 + "/midi")
+        h.headers["Authorization"] = "Bearer " + "x" * 32
+        with patch.dict(os.environ, {"PRIVATE_CATALOG_TOKEN": "x" * 32}), patch.object(server, "private_song", return_value=b"MThd"):
+            self.assertTrue(h.serve_api())
+        self.assertIn(("Cache-Control", "private, no-store"), h.responses)
 
 
 class StaticCatalogTests(unittest.TestCase):
