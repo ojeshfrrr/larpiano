@@ -5,7 +5,7 @@ using Keynote.Online;
 namespace Keynote.App;
 
 public partial class MainWindow {
- sealed record ModernPick(string Artist,string Title,RemappedSong? Shared=null) { public override string ToString() => $"{Title}  •  {Artist}"+(Shared!=null?"  •  Friends":""); }
+ sealed record ModernPick(string Artist,string Title,RemappedSong? Shared=null) { public override string ToString() => $"{Title}  •  {Artist}"+(Shared!=null?"  •  Friends":ModernDownloads.Find(Artist,Title)!=null?"  •  Creator":""); }
  IReadOnlyList<RemappedSong> friendsSongs=Array.Empty<RemappedSong>();
  string? friendsCode;
  static readonly ModernPick[] ModernPicks = {
@@ -22,11 +22,21 @@ public partial class MainWindow {
  void InitializeModernPicks() => ApplyModernFilter();
  void ModernFilterChanged(object sender,TextChangedEventArgs e) => ApplyModernFilter();
  void ModernFriendsFilterChanged(object sender,RoutedEventArgs e) => ApplyModernFilter();
- void ApplyModernFilter() { if(ModernList==null || ModernQuery==null)return; var q=ModernQuery.Text.Trim(); var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s)); var direct=ModernDownloads.Available.Where(x=>!ModernPicks.Any(p=>p.Artist.Equals(x.Artist,StringComparison.OrdinalIgnoreCase) && p.Title.Equals(x.Title,StringComparison.OrdinalIgnoreCase))).Select(x=>new ModernPick(x.Artist,x.Title)); var picks=ModernFriendsOnly?.IsChecked==true ? shared : shared.Concat(direct).Concat(ModernPicks); ModernList.ItemsSource=picks.Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase)).ToArray(); }
+ void ApplyModernFilter() {
+  if(ModernList==null || ModernQuery==null)return;
+  var q=ModernQuery.Text.Trim();
+  var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s));
+  var direct=ModernDownloads.Available.Select(x=>new ModernPick(x.Artist,x.Title));
+  var available=shared.Concat(friendsCode!=null ? direct : Enumerable.Empty<ModernPick>());
+  var picks=ModernFriendsOnly?.IsChecked==true ? available : shared.Concat(direct).Concat(ModernPicks);
+  ModernList.ItemsSource=picks
+   .Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase))
+   .DistinctBy(p=>(p.Artist.ToUpperInvariant(),p.Title.ToUpperInvariant())).ToArray();
+ }
  async void ConnectFriends(object sender,RoutedEventArgs e) {
   if(onlineHttp==null || library==null)return;
   FriendsConnect.IsEnabled=false;
-  try { var code=FriendsCode.Password; FriendsStatus.Text="Connecting…"; var songs=await new PrivateCatalogService(onlineHttp,library).ListAsync(code,CancellationToken.None); friendsCode=code; FriendsCode.Clear(); friendsSongs=songs; ApplyModernFilter(); FriendsStatus.Text=$"Friends collection connected: {songs.Count} arrangements."; }
+  try { var code=FriendsCode.Password; FriendsStatus.Text="Connecting…"; var songs=await new PrivateCatalogService(onlineHttp,library).ListAsync(code,CancellationToken.None); friendsCode=code; FriendsCode.Clear(); friendsSongs=songs; ApplyModernFilter(); FriendsStatus.Text=$"Friends collection connected: {songs.Count} private arrangements, plus creator downloads."; }
   catch(Exception) { friendsCode=null; friendsSongs=Array.Empty<RemappedSong>(); ApplyModernFilter(); FriendsStatus.Text="Could not connect. Check your code or try again later."; }
   finally { FriendsConnect.IsEnabled=true; }
  }
