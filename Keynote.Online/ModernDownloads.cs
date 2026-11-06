@@ -27,6 +27,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Poetic rizz", "La leçon particulière (TikTok remix)", new Uri("https://www.patreon.com/file?h=82139055&m=200275173"), "cc143712353f3c84c989efd1832fab54826f3443e9e8380d92b86a8524e2d76d", "https://www.patreon.com/posts/poetic-rizz-la-82139055", 0)
   ,new ModernDownload("The Kid LAROI", "Where Does Your Spirit Go", new Uri("https://www.patreon.com/file?h=82135757&m=200264534"), "ad22284d6f6bb2de8192704d535a53ae60c6cd70e1da9ca36505d3b45bd52ab2", "https://www.patreon.com/posts/kid-laroi-where-82135757", 0)
   ,new ModernDownload("TWICE", "Hare Hare", new Uri("https://www.patreon.com/file?h=83065423&m=203653207"), "879540de07e113b0ccc2fb8decce8e64b67d463e4973fc6c6ca352a06c27b8b3", "https://www.patreon.com/posts/twice-hare-hare-83065423", 1)
+  ,new ModernDownload("Conan Gray", "Never Ending Song", new Uri("https://www.patreon.com/file?h=83289029&m=204530533"), "7db4b78441786663a8c78159d3b7eb998cc9cc7108c43bebf1982d4604573167", "https://www.patreon.com/posts/conan-gray-never-83289029", 1)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
