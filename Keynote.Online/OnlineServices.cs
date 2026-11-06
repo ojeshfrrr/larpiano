@@ -22,7 +22,7 @@ public sealed class MidiDownloadService(HttpClient http) : IMidiDownloadService 
   HttpResponseMessage? redirected=null;
   if((int)initial.StatusCode is >= 300 and < 400 && initial.Headers.Location is Uri location) {
    var destination=location.IsAbsoluteUri?location:new Uri(uri,location);
-   if(!ModernDownloads.IsApprovedPatreonRedirect(uri,destination))throw new HttpRequestException("The MIDI download redirected to an unapproved endpoint.");
+   if(!ModernDownloads.IsApprovedPatreonRedirect(uri,destination) && !ModernDownloads.IsApprovedDropboxRedirect(uri,destination))throw new HttpRequestException("The MIDI download redirected to an unapproved endpoint.");
    redirected=await http.GetAsync(destination,HttpCompletionOption.ResponseHeadersRead,token);
   }
   using var response=redirected; var actual=response ?? initial; actual.EnsureSuccessStatusCode(); var size=actual.Content.Headers.ContentLength; if(size>MaxBytes)throw new InvalidDataException("MIDI exceeds the 10 MB limit.");

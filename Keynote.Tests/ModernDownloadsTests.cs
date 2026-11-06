@@ -27,6 +27,14 @@ public class ModernDownloadsTests {
   Assert.True(ModernDownloads.IsApprovedPatreonRedirect(item.DownloadUri,new Uri("https://c10.patreonusercontent.com/4/patreon-media/p/post/84720121/example/1.mid?token=test")));
   Assert.False(ModernDownloads.IsApprovedPatreonRedirect(item.DownloadUri,new Uri("https://c10.patreonusercontent.com/4/patreon-media/p/post/81977759/example/1.mid?token=test")));
  }
+ [Fact] public void DropboxRedirectRequiresApprovedSourceAndDropboxHost() {
+  var item=ModernDownloads.Find("Cigarettes After Sex","K.")!;
+  Assert.True(ModernDownloads.IsApprovedDropboxRedirect(item.DownloadUri,new Uri("https://uc123abc.dl.dropboxusercontent.com/cd/0/inline/token/file?dl=1")));
+  Assert.True(ModernDownloads.IsApprovedDropboxRedirect(item.DownloadUri,new Uri("https://uc123abc.dl.dropboxusercontent.com/cd/0/get/token/file?dl=1")));
+  Assert.False(ModernDownloads.IsApprovedDropboxRedirect(item.DownloadUri,new Uri("https://uc123abc.dl.dropboxusercontent.com/cd/0/other/token/file")));
+  Assert.False(ModernDownloads.IsApprovedDropboxRedirect(item.DownloadUri,new Uri("https://uc123abc.dl.dropboxusercontent.com.evil.example/cd/0/inline/token/file")));
+  Assert.False(ModernDownloads.IsApprovedDropboxRedirect(new Uri("https://www.dropbox.com/other"),new Uri("https://uc123abc.dl.dropboxusercontent.com/cd/0/inline/token/file")));
+ }
  [Fact] public async Task ChangedFileIsRejectedBeforeSaving() {
   var data=await File.ReadAllBytesAsync(Path.Combine(AppContext.BaseDirectory,"Fixtures","test-c-major-scale.mid"));
   using var http=new HttpClient(new Handler((_,_)=>Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK){Content=new ByteArrayContent(data)})));
