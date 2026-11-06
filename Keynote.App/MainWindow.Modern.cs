@@ -5,7 +5,7 @@ using Keynote.Online;
 namespace Keynote.App;
 
 public partial class MainWindow {
- sealed record ModernPick(string Artist,string Title,RemappedSong? Shared=null) { public override string ToString() => $"{Title}  •  {Artist}"+(Shared!=null?"  •  Friends":ModernDownloads.Find(Artist,Title)!=null?"  •  Creator":""); }
+ sealed record ModernPick(string Artist,string Title,RemappedSong? Shared=null) { public override string ToString() => $"{Title}  •  {Artist}"+(Shared!=null?"  •  Friends":ModernDownloads.Find(Artist,Title)!=null?"  •  Creator":"  •  Search only"); }
  IReadOnlyList<RemappedSong> friendsSongs=Array.Empty<RemappedSong>();
  string? friendsCode;
  static readonly ModernPick[] ModernPicks = {
@@ -28,10 +28,11 @@ public partial class MainWindow {
   var shared=friendsSongs.Select(s=>new ModernPick(s.Artist,s.Title,s));
   var direct=ModernDownloads.Available.Select(x=>new ModernPick(x.Artist,x.Title));
   var available=shared.Concat(friendsCode!=null ? direct : Enumerable.Empty<ModernPick>());
-  var picks=ModernFriendsOnly?.IsChecked==true ? available : shared.Concat(direct).Concat(ModernPicks);
+  var shortlist=ModernPicks.Select(p=>p with { Shared=ModernSongMatching.FindShared(p.Artist,p.Title,friendsSongs) });
+  var picks=ModernFriendsOnly?.IsChecked==true ? available : shared.Concat(direct).Concat(shortlist);
   ModernList.ItemsSource=picks
    .Where(p=>p.Artist.Contains(q,StringComparison.OrdinalIgnoreCase)||p.Title.Contains(q,StringComparison.OrdinalIgnoreCase))
-   .DistinctBy(p=>(p.Artist.ToUpperInvariant(),p.Title.ToUpperInvariant())).ToArray();
+   .DistinctBy(p=>p.Shared!=null ? "sha:"+p.Shared.Sha256 : "name:"+p.Artist.ToUpperInvariant()+"\0"+p.Title.ToUpperInvariant()).ToArray();
  }
  async void ConnectFriends(object sender,RoutedEventArgs e) {
   if(onlineHttp==null || library==null)return;
@@ -49,7 +50,7 @@ public partial class MainWindow {
   var local=pick==null?null:FindLocalModern(pick); var direct=pick==null?null:ModernDownloads.Find(pick.Artist,pick.Title);
   ModernDownloadButton.IsEnabled=pick!=null && (local!=null || direct!=null || pick.Shared!=null && friendsCode!=null);
   ModernDownloadButton.Content=local!=null?"Select from library":"Download and select";
-  ModernDetails.Text=pick==null?"Select a song to search for a MIDI or find it in your library.":$"{pick.Title}\n{pick.Artist}\n\n"+(local!=null?"A personal copy is available in your library.":pick.Shared!=null?"Available from the friends collection. Verify your piano mapping before playback.":direct!=null?"A free original arrangement is available from its creator. Check your piano mapping and adjust any unmapped notes before playing.":"Direct download is unavailable for this title. Search MIDI sources or import your own copy.");
+  ModernDetails.Text=pick==null?"Select a song to search for a MIDI or find it in your library.":$"{pick.Title}\n{pick.Artist}\n\n"+(local!=null?"A personal copy is available in your library.":pick.Shared!=null?$"Friends arrangement: {pick.Shared.Title}. Verify your piano mapping before playback.":direct!=null?"A free original arrangement is available from its creator. Check your piano mapping and adjust any unmapped notes before playing.":"Direct download is unavailable for this title. Search MIDI sources or import your own copy.");
  }
  async void DownloadModern(object sender,RoutedEventArgs e) {
   if(ModernList.SelectedItem is not ModernPick pick || library==null || downloads==null)return;
