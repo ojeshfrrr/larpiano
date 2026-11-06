@@ -27,6 +27,11 @@ public partial class MainWindow {
   if(RemappedList.SelectedItem is not RemappedSong item) { RemappedDownload.IsEnabled=false; RemappedDetails.Text="Select a song to see its source and mapping details."; return; }
   RemappedDownload.IsEnabled=true; RemappedDetails.Text=$"{item.Title}\n{item.Artist}\n\nPiano: {item.Profile}\nRecommended octave: {item.Octave:+0;-0;0}\nNotes: {item.KeptNotes}; omitted: {item.ExcludedNotes}\n{item.Modification}\n\n{item.Attribution}\nLicense: {item.License}\nSource: {item.Source}\n\nPrepared from the listed source; this individual arrangement has not been confirmed in Roblox. Test and verify your own mapping.";
  }
+ void LoadDefaultPianoLayout() {
+  if(WorkflowMode || profile.Keys.Count!=0 || !string.Equals(profile.Name,"Empty mapping",StringComparison.Ordinal))return;
+  try { ApplyRemappedProfile(); CalibrationStatus.Text="Visual Pianos reference loaded. Test it against your piano before verifying."; }
+  catch(Exception ex) { CalibrationStatus.Text="Could not load the Visual Pianos reference: "+ex.Message; }
+ }
  void LoadRemappedProfile(object sender,RoutedEventArgs e) {
   if(MessageBox.Show("Replace your current key mapping with the Visual Pianos reference layout? You will need to test and verify it for your piano.","Load piano layout",MessageBoxButton.YesNo,MessageBoxImage.Question)!=MessageBoxResult.Yes)return;
   try { ApplyRemappedProfile(); MainTabs.SelectedIndex=4; CalibrationStatus.Text="Reference layout loaded but not verified. Test the keys against your piano, then verify the profile."; }
@@ -48,3 +53,4 @@ public partial class MainWindow {
   finally { if(ReferenceEquals(remappedCancellation,request)) { remappedCancellation=null; RemappedDownload.IsEnabled=RemappedList.SelectedItem is RemappedSong; } request.Dispose(); }
  }
 }
+
