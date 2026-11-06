@@ -29,19 +29,22 @@ public partial class MainWindow {
  }
  void LoadDefaultPianoLayout() {
   if(WorkflowMode)return;
-  try {
-   var loaded=ReadRemappedProfile();
-   if(!SharedPianoProfile.ShouldApply(profile,loaded))return;
-   loaded.Name="Shared Visual Pianos layout (C4/C#4/D4 tested)";
-   loaded.Verified=true;
-   SetRemappedProfile(loaded);
-   CalibrationStatus.Text="Shared Visual Pianos layout loaded. The C4, C#4 and D4 notes were tested; other notes depend on the same piano layout.";
-  } catch(Exception ex) { CalibrationStatus.Text="Could not load the shared piano layout: "+ex.Message; }
+  try { ApplySharedProfile(); }
+  catch(Exception ex) {
+   profile=new KeyboardMapping { Name="Shared layout unavailable", Verified=false };
+   foreach(var row in rows)row.Key="";
+   MappingGrid.Items.Refresh(); UpdateMapping();
+   CalibrationStatus.Text="Could not load the shared piano layout: "+ex.Message;
+  }
  }
  void LoadRemappedProfile(object sender,RoutedEventArgs e) {
-  if(MessageBox.Show("Replace your current key mapping with the Visual Pianos reference layout? You will need to test and verify it for your piano.","Load piano layout",MessageBoxButton.YesNo,MessageBoxImage.Question)!=MessageBoxResult.Yes)return;
-  try { ApplyRemappedProfile(); MainTabs.SelectedIndex=4; CalibrationStatus.Text="Reference layout loaded but not verified. Test the keys against your piano, then verify the profile."; }
-  catch(Exception ex) { RemappedStatus.Text="Could not load the piano layout: "+ex.Message; }
+  try { ApplySharedProfile(); MainTabs.SelectedIndex=4; }
+  catch(Exception ex) { RemappedStatus.Text="Could not load the shared piano layout: "+ex.Message; }
+ }
+ void ApplySharedProfile() {
+  var loaded=SharedPianoProfile.Create(ReadRemappedProfile());
+  SetRemappedProfile(loaded);
+  CalibrationStatus.Text="Shared Visual Pianos layout. C4, C#4 and D4 were tested; other notes depend on the same piano layout.";
  }
  KeyboardMapping ReadRemappedProfile() {
   var resource=Application.GetResourceStream(new Uri("/Keynote.App;component/Assets/visual-pianos-reference.json",UriKind.Relative)) ?? throw new InvalidDataException("The piano layout is missing.");
