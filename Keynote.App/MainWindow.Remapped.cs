@@ -28,20 +28,30 @@ public partial class MainWindow {
   RemappedDownload.IsEnabled=true; RemappedDetails.Text=$"{item.Title}\n{item.Artist}\n\nPiano: {item.Profile}\nRecommended octave: {item.Octave:+0;-0;0}\nNotes: {item.KeptNotes}; omitted: {item.ExcludedNotes}\n{item.Modification}\n\n{item.Attribution}\nLicense: {item.License}\nSource: {item.Source}\n\nPrepared from the listed source; this individual arrangement has not been confirmed in Roblox. Test and verify your own mapping.";
  }
  void LoadDefaultPianoLayout() {
-  if(WorkflowMode || profile.Keys.Count!=0 || !string.Equals(profile.Name,"Empty mapping",StringComparison.Ordinal))return;
-  try { ApplyRemappedProfile(); CalibrationStatus.Text="Visual Pianos reference loaded. Test it against your piano before verifying."; }
-  catch(Exception ex) { CalibrationStatus.Text="Could not load the Visual Pianos reference: "+ex.Message; }
+  if(WorkflowMode)return;
+  try {
+   var loaded=ReadRemappedProfile();
+   if(!SharedPianoProfile.ShouldApply(profile,loaded))return;
+   loaded.Name="Shared Visual Pianos layout (C4/C#4/D4 tested)";
+   loaded.Verified=true;
+   SetRemappedProfile(loaded);
+   CalibrationStatus.Text="Shared Visual Pianos layout loaded. The C4, C#4 and D4 notes were tested; other notes depend on the same piano layout.";
+  } catch(Exception ex) { CalibrationStatus.Text="Could not load the shared piano layout: "+ex.Message; }
  }
  void LoadRemappedProfile(object sender,RoutedEventArgs e) {
   if(MessageBox.Show("Replace your current key mapping with the Visual Pianos reference layout? You will need to test and verify it for your piano.","Load piano layout",MessageBoxButton.YesNo,MessageBoxImage.Question)!=MessageBoxResult.Yes)return;
   try { ApplyRemappedProfile(); MainTabs.SelectedIndex=4; CalibrationStatus.Text="Reference layout loaded but not verified. Test the keys against your piano, then verify the profile."; }
   catch(Exception ex) { RemappedStatus.Text="Could not load the piano layout: "+ex.Message; }
  }
- void ApplyRemappedProfile() {
+ KeyboardMapping ReadRemappedProfile() {
   var resource=Application.GetResourceStream(new Uri("/Keynote.App;component/Assets/visual-pianos-reference.json",UriKind.Relative)) ?? throw new InvalidDataException("The piano layout is missing.");
   using var stream=resource.Stream; var loaded=JsonSerializer.Deserialize<KeyboardMapping>(stream) ?? throw new InvalidDataException("The piano layout is invalid.");
   if(loaded.Keys==null || loaded.Keys.Count==0 || loaded.Keys.Any(k=>k.Key is <0 or >127 || !KeyboardMapping.IsValidKey(k.Value)) || loaded.Duplicates().Any())throw new InvalidDataException("The piano layout is invalid.");
-  InvalidateMappingSession(); loaded.Verified=false; profile=loaded; foreach(var row in rows)row.Key=profile.Keys.GetValueOrDefault(row.Pitch,""); MappingGrid.Items.Refresh(); UpdateMapping(); SavePlayerPreferences();
+  return loaded;
+ }
+ void ApplyRemappedProfile() { var loaded=ReadRemappedProfile(); loaded.Verified=false; SetRemappedProfile(loaded); }
+ void SetRemappedProfile(KeyboardMapping loaded) {
+  InvalidateMappingSession(); profile=loaded; foreach(var row in rows)row.Key=profile.Keys.GetValueOrDefault(row.Pitch,""); MappingGrid.Items.Refresh(); UpdateMapping(); SavePlayerPreferences();
  }
  async void DownloadRemapped(object sender,RoutedEventArgs e)=>await DownloadRemappedAsync();
  async Task DownloadRemappedAsync() {
