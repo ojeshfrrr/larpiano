@@ -30,6 +30,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Conan Gray", "Never Ending Song", new Uri("https://www.patreon.com/file?h=83289029&m=204530533"), "7db4b78441786663a8c78159d3b7eb998cc9cc7108c43bebf1982d4604573167", "https://www.patreon.com/posts/conan-gray-never-83289029", 1)
   ,new ModernDownload("Labrinth", "The Feels", new Uri("https://www.patreon.com/file?h=82236439&m=200609546"), "22bdb4cb100c74a8e52e4d27cb28feae580f8a87e7b7790b7f2bf642f8c6d14b", "https://www.patreon.com/posts/labrinth-feels-82236439", -1)
   ,new ModernDownload("Cigarettes After Sex", "K.", new Uri("https://www.dropbox.com/scl/fi/zexsbcpua9lmy9i6k5tp1/K..mid?rlkey=0sg9a3n6tpbcupg9m4sqr2g1s&dl=1"), "a8efb5842ba4863535b2cd266e6743b681017f18a2e5c01a1b1c519aedd8416e", "https://sites.google.com/view/yaronmusic/c/cigarettes-after-sex/k", 1)
+  ,new ModernDownload("Elvis Presley", "Can't Help Falling in Love", new Uri("https://bitmidi.com/uploads/21573.mid"), "eb78ac1bac84f3cc6030e4075f78845a2a0c37d01286047a439e4e4141da2e44", "https://bitmidi.com/cant-help-falling-in-love-with-you-1-mid", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
@@ -50,7 +51,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   var bytes = await downloads.DownloadAsync(item.DownloadUri, progress, token);
   if (!string.Equals(Convert.ToHexStringLower(SHA256.HashData(bytes)), item.Sha256, StringComparison.Ordinal)) throw new InvalidDataException("The creator's MIDI has changed; the download could not be verified.");
   token.ThrowIfCancellationRequested();
-  var provider=item.DownloadUri.Host.Equals("www.patreon.com",StringComparison.OrdinalIgnoreCase)?"NC Pianist":item.DownloadUri.Host.Equals("www.dropbox.com",StringComparison.OrdinalIgnoreCase)?"Yaron music":"Free Piano Tutorials";
+  var provider=item.DownloadUri.Host.Equals("www.patreon.com",StringComparison.OrdinalIgnoreCase)?"NC Pianist":item.DownloadUri.Host.Equals("www.dropbox.com",StringComparison.OrdinalIgnoreCase)?"Yaron music":item.DownloadUri.Host.Equals("bitmidi.com",StringComparison.OrdinalIgnoreCase)?"BitMidi":"Free Piano Tutorials";
   return await library.AddAsync(bytes, new CatalogResult(provider, item.Sha256, item.Title, item.Artist, "Creator-provided original piano arrangement; verify the mapping before playback.", "Personal copy; check creator and rights holder terms", item.Source, RecommendedOctave: item.Octave), token);
  }
 }
