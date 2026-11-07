@@ -31,6 +31,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Labrinth", "The Feels", new Uri("https://www.patreon.com/file?h=82236439&m=200609546"), "22bdb4cb100c74a8e52e4d27cb28feae580f8a87e7b7790b7f2bf642f8c6d14b", "https://www.patreon.com/posts/labrinth-feels-82236439", -1)
   ,new ModernDownload("Cigarettes After Sex", "K.", new Uri("https://www.dropbox.com/scl/fi/zexsbcpua9lmy9i6k5tp1/K..mid?rlkey=0sg9a3n6tpbcupg9m4sqr2g1s&dl=1"), "a8efb5842ba4863535b2cd266e6743b681017f18a2e5c01a1b1c519aedd8416e", "https://sites.google.com/view/yaronmusic/c/cigarettes-after-sex/k", 1)
   ,new ModernDownload("Elvis Presley", "Can't Help Falling in Love", new Uri("https://bitmidi.com/uploads/21573.mid"), "eb78ac1bac84f3cc6030e4075f78845a2a0c37d01286047a439e4e4141da2e44", "https://bitmidi.com/cant-help-falling-in-love-with-you-1-mid", 0)
+  ,new ModernDownload("Yiruma", "River Flows in You", new Uri("https://bitmidi.com/uploads/112145.mid"), "7692d6a1e53d9afc3b8e86b134329f1dfdf50fe9c04c4854e7343eb7bf3d70fa", "https://bitmidi.com/yiruma-rivers-flow-in-you-mid", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
