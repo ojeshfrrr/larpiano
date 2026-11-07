@@ -51,6 +51,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Ed Sheeran", "Eyes Closed", new Uri("https://www.patreon.com/file?h=80485932&m=194555162"), "840b3509932bb308442bbbc54ecebe8186ec790eeaa0ba08dc659bbd6977eb23", "https://www.patreon.com/ncpianist/posts/ed-sheeran-eyes-80485932", 0)
   ,new ModernDownload("Ruel", "I Don't Wanna Be Like You", new Uri("https://www.patreon.com/file?h=80163245&m=193512614"), "3cb358ce05979dbacfd8ff4088cc20ce9d90165af531be4e5b020218d3c35ef6", "https://www.patreon.com/ncpianist/posts/ruel-i-dont-be-80163245", 0)
   ,new ModernDownload("Ruel", "Set Yourself On Fire", new Uri("https://www.patreon.com/file?h=80069245&m=193227421"), "a1052eda4db93e46734a79ff22022193607a8d3b25674a9c658ae6c4aac1df54", "https://www.patreon.com/ncpianist/posts/ruel-set-on-fire-80069245", 0)
+  ,new ModernDownload("Ruel", "Wish I Had You", new Uri("https://www.patreon.com/file?h=79876307&m=192622612"), "daea592a8e2c66a6ab433d5e35a081ad6e8341cf51b3125d52839486cf951831", "https://www.patreon.com/ncpianist/posts/ruel-wish-i-had-79876307", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
