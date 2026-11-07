@@ -81,6 +81,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Charlie Puth", "That's Not How This Works", new Uri("https://www.patreon.com/file?h=80925272&m=196010160"), "9bf6b8114280e7af8553f512b0032089b6aceffc402a507132751b9d4d9b7bdb", "https://www.patreon.com/ncpianist/posts/charlie-puth-not-80925272", 1)
   ,new ModernDownload("NF", "Motto", new Uri("https://www.patreon.com/file?h=80163417&m=193516983"), "adae55237db914d4328a299f8ead3408b010e411376b1f74ae44b0b87b5b2d26", "https://www.patreon.com/ncpianist/posts/nf-motto-sheet-80163417", 0)
   ,new ModernDownload("Mimi Webb", "Freezing", new Uri("https://www.patreon.com/file?h=80485819&m=194551785"), "df6d6159999cb25223b1dbde9c1d302d4cd40bfaaa062d14202891d4dbce6cbd", "https://www.patreon.com/ncpianist/posts/mimi-webb-sheet-80485819", 0)
+  ,new ModernDownload("Keenan Te", "Scars", new Uri("https://www.patreon.com/file?h=79692582&m=192043877"), "6e0c3d60ff5b3b69a0f77e50c08129503de3fb03b1af17777f53c6cf6a95d3ab", "https://www.patreon.com/ncpianist/posts/keenan-te-scars-79692582", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
