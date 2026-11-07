@@ -35,6 +35,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Yann Tiersen", "Comptine d'un autre été", new Uri("https://bitmidi.com/uploads/111883.mid"), "06ddf4b9d7c08b19a8b40aff031d9f7f205e28c3f251705ceca987f7632d3e26", "https://bitmidi.com/yann-tiersen-une-comptine-dun-autre-mid", 0)
   ,new ModernDownload("James Arthur", "A Year Ago", new Uri("https://www.patreon.com/file?h=83065084&m=203650934"), "2936f54cf0b53a9f5b0967930f39893cbb76e86c7c7c57f92861439eafa847a5", "https://www.patreon.com/posts/james-arthur-ago-83065084", 0)
   ,new ModernDownload("Ruel", "Japanese Whiskey", new Uri("https://www.patreon.com/file?h=79634566&m=191866367"), "5eabb9e1c96851d82387f8d79de72e163e496d44e482d9ffdcb1a228954e0d29", "https://www.patreon.com/posts/ruel-japanese-79634566", 0)
+  ,new ModernDownload("SEVENTEEN", "April Shower", new Uri("https://www.patreon.com/file?h=82396990&m=201160130"), "6d58f1c7e8c87761f04da52d7ebd8f9febe8782b40bdc8934b1c56728d3b4e7a", "https://www.patreon.com/posts/seventeen-april-82396990", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
