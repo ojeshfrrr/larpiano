@@ -47,6 +47,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Cigarettes After Sex", "Heavenly", new Uri("https://www.dropbox.com/scl/fi/4u6tgk6jlhwjmam956ajp/Heavenly.mid?rlkey=hel5z5gjtjoggb6dy3ldqmw8q&dl=1"), "fd91a7841e8369552ae1549f023e4cddca9f0d503d62fc5ed36b616fdca4a060", "https://sites.google.com/view/yaronmusic/c/cigarettes-after-sex/heavenly", 0)
   ,new ModernDownload("Miley Cyrus", "River", new Uri("https://www.patreon.com/file?h=79783797&m=192320503"), "af2675bc5a2809d10f44d387d436a4c66d743b05ea3aa9e88be25a5421916d02", "https://www.patreon.com/ncpianist/posts/miley-cyrus-midi-79783797", 0)
   ,new ModernDownload("Lizzy McAlpine", "ceilings", new Uri("https://www.patreon.com/file?h=79690991&m=192039962"), "4c6cf0d594928bcea95bf0f38ebdda0ab1b4e4ad3e767171a650da4fb1538775", "https://www.patreon.com/ncpianist/posts/lizzy-mcalpine-79690991", 0)
+  ,new ModernDownload("Ruel", "LIE", new Uri("https://www.patreon.com/file?h=80070852&m=193231844"), "587dbf3aecfb7f15bb90bc4006049ebb386f5f7deea8d02dd359b79bdea2e574", "https://www.patreon.com/ncpianist/posts/ruel-lie-sheet-80070852", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
