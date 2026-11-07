@@ -7,6 +7,7 @@ public static partial class PreparedSongMappings {
   int count; int[] changes;
   if(string.Equals(sha256,CantHelpHash,StringComparison.OrdinalIgnoreCase)){count=1325;changes=CantHelpChanges;}
   else if(Additional.TryGetValue(sha256,out var mapping)){count=mapping.Count;changes=mapping.Changes;}
+  else if(More.TryGetValue(sha256,out var more)){count=more.Count;changes=more.Changes;}
   else return song;
   var ordered=song.Notes.OrderBy(n=>n.Start).ThenBy(n=>n.Track).ThenBy(n=>n.Pitch).ToArray();
   if(ordered.Length!=count)throw new InvalidDataException("The song no longer matches its prepared mapping.");
