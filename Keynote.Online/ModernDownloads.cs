@@ -36,6 +36,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("James Arthur", "A Year Ago", new Uri("https://www.patreon.com/file?h=83065084&m=203650934"), "2936f54cf0b53a9f5b0967930f39893cbb76e86c7c7c57f92861439eafa847a5", "https://www.patreon.com/posts/james-arthur-ago-83065084", 0)
   ,new ModernDownload("Ruel", "Japanese Whiskey", new Uri("https://www.patreon.com/file?h=79634566&m=191866367"), "5eabb9e1c96851d82387f8d79de72e163e496d44e482d9ffdcb1a228954e0d29", "https://www.patreon.com/posts/ruel-japanese-79634566", 0)
   ,new ModernDownload("SEVENTEEN", "April Shower", new Uri("https://www.patreon.com/file?h=82396990&m=201160130"), "6d58f1c7e8c87761f04da52d7ebd8f9febe8782b40bdc8934b1c56728d3b4e7a", "https://www.patreon.com/posts/seventeen-april-82396990", 0)
+  ,new ModernDownload("beabadoobee", "Glue Song", new Uri("https://www.patreon.com/file?h=79130788&m=190246590"), "c91a977918bae9fc245257452b2253cc834018c9f7fba9f4f11e911aae9335f6", "https://www.patreon.com/posts/beabadoobee-glue-79130788", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
