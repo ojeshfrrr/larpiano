@@ -53,6 +53,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Ruel", "Set Yourself On Fire", new Uri("https://www.patreon.com/file?h=80069245&m=193227421"), "a1052eda4db93e46734a79ff22022193607a8d3b25674a9c658ae6c4aac1df54", "https://www.patreon.com/ncpianist/posts/ruel-set-on-fire-80069245", 0)
   ,new ModernDownload("Ruel", "Wish I Had You", new Uri("https://www.patreon.com/file?h=79876307&m=192622612"), "daea592a8e2c66a6ab433d5e35a081ad6e8341cf51b3125d52839486cf951831", "https://www.patreon.com/ncpianist/posts/ruel-wish-i-had-79876307", 0)
   ,new ModernDownload("Tom Odell & AURORA", "Butterflies", new Uri("https://www.patreon.com/file?h=79692319&m=192041780"), "441d56fe0c78405a4a9475032f3dc963cac50f7f845cba057e403ab82aa0633b", "https://www.patreon.com/ncpianist/posts/tom-odell-feat-79692319", 0)
+  ,new ModernDownload("Halsey", "Die 4 Me", new Uri("https://www.patreon.com/file?h=79449375&m=191263106"), "f21e2b0ed96a33ae4cc794757def95fb6dab4eb4fd9c859b9860bfac7336afe6", "https://www.patreon.com/ncpianist/posts/halsey-die-4-me-79449375", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
