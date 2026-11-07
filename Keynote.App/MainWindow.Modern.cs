@@ -42,7 +42,12 @@ public partial class MainWindow {
   finally { FriendsConnect.IsEnabled=true; }
  }
  CancellationTokenSource? modernDownloadCancellation;
- LibraryEntry? FindLocalModern(ModernPick pick) => pick.Shared!=null ? libraryEntries.FirstOrDefault(e=>e.Sha256==pick.Shared.Sha256) : libraryEntries.FirstOrDefault(e => e.Artist.Equals(pick.Artist,StringComparison.OrdinalIgnoreCase) && (e.Title.Equals(pick.Title,StringComparison.OrdinalIgnoreCase) || e.Title.StartsWith(pick.Title+" ",StringComparison.OrdinalIgnoreCase)));
+ LibraryEntry? FindLocalModern(ModernPick pick) {
+  if(pick.Shared!=null) return libraryEntries.FirstOrDefault(e=>e.Sha256==pick.Shared.Sha256);
+  var direct=ModernDownloads.Find(pick.Artist,pick.Title);
+  if(direct!=null) return libraryEntries.FirstOrDefault(e=>e.Sha256.Equals(direct.Sha256,StringComparison.OrdinalIgnoreCase));
+  return libraryEntries.FirstOrDefault(e=>e.Artist.Equals(pick.Artist,StringComparison.OrdinalIgnoreCase) && (e.Title.Equals(pick.Title,StringComparison.OrdinalIgnoreCase) || e.Title.StartsWith(pick.Title+" ",StringComparison.OrdinalIgnoreCase)));
+ }
  void ModernSelected(object sender,SelectionChangedEventArgs e) {
   modernDownloadCancellation?.Cancel();
   if(ModernDetails==null || ModernSearchButton==null || ModernLibraryButton==null || ModernDownloadButton==null)return;
