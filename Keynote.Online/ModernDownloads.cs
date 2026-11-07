@@ -87,6 +87,7 @@ public sealed class ModernDownloads(IMidiDownloadService downloads, IMidiLibrary
   ,new ModernDownload("Sam Smith & Ed Sheeran", "Who We Love", new Uri("https://www.patreon.com/file?h=77950513&m=186569959"), "b8df0a6ba421e51510301f66ae099c7d41babd53f8af398ddb364ea851cac427", "https://www.patreon.com/ncpianist/posts/sam-smith-ed-who-77950513", 0)
   ,new ModernDownload("Morgan Wallen", "Thinkin' Bout Me", new Uri("https://www.patreon.com/file?h=79634811&m=191867762"), "29b56eba8438f6cadd1aca8976c0a9d5452791a0ac806c27a62c8dba84eff87f", "https://www.patreon.com/ncpianist/posts/morgan-wallen-me-79634811", 0)
   ,new ModernDownload("Morgan Wallen", "Devil Don't Know", new Uri("https://www.patreon.com/file?h=79635321&m=191868959"), "68d25f94339773a7f892a20e7a0119846e3c490e8af588c4c0769b56ebfbba52", "https://www.patreon.com/ncpianist/posts/morgan-wallen-79635321", 0)
+  ,new ModernDownload("Marshmello & Manuel Turizo", "El Merengue", new Uri("https://www.patreon.com/file?h=79635716&m=191870167"), "177fa25084aedac2e1e5e399d3cb91019a162e6954f618ae47af082c9523e7f1", "https://www.patreon.com/ncpianist/posts/marshmello-el-79635716", 0)
  });
  public static ModernDownload? Find(string artist, string title) => Available.FirstOrDefault(x => x.Artist.Equals(artist, StringComparison.OrdinalIgnoreCase) && x.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
  public static bool IsApprovedEndpoint(Uri uri) => Available.Any(x => string.Equals(x.DownloadUri.AbsoluteUri, uri.AbsoluteUri, StringComparison.Ordinal));
